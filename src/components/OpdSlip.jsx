@@ -1,11 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export const OpdSlip = ({ appointment }) => {
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-bs-theme', 'light');
+    };
+    const handleAfterPrint = () => {
+      const savedTheme = localStorage.getItem('navjeewan_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    };
+
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+    return () => {
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+    };
+  }, []);
+
   if (!appointment) return null;
 
   const handlePrint = () => {
+    const prevTheme = document.documentElement.getAttribute('data-theme');
+    const prevBsTheme = document.documentElement.getAttribute('data-bs-theme');
+    try {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-bs-theme', 'light');
+    } catch {
+      // ignore
+    }
+
     window.print();
+
+    setTimeout(() => {
+      try {
+        if (prevTheme) document.documentElement.setAttribute('data-theme', prevTheme);
+        if (prevBsTheme) document.documentElement.setAttribute('data-bs-theme', prevBsTheme);
+      } catch {
+        // ignore
+      }
+    }, 1500);
   };
 
   const waMessage = encodeURIComponent(
@@ -13,7 +50,14 @@ export const OpdSlip = ({ appointment }) => {
   );
 
   return (
-    <div className="opd-slip bg-white rounded-4 border shadow-sm p-3 p-md-4" id="printableSlip">
+    <div
+      className="opd-slip bg-white rounded-4 border shadow-sm p-3 p-md-4"
+      id="printableSlip"
+      style={{
+        backgroundColor: '#ffffff',
+        color: '#111827'
+      }}
+    >
       {/* Letterhead Top Bar */}
       <div className="opd-letterhead pb-2 mb-2">
         <div className="d-flex justify-content-between align-items-start flex-wrap gap-2">
@@ -55,19 +99,20 @@ export const OpdSlip = ({ appointment }) => {
             <img
               src="/images/dr-sharvan-kumar.png"
               alt="Dr. Sharvan Kumar"
-              className="rounded-circle object-fit-cover shadow-sm d-none d-sm-block"
+              className="rounded-circle object-fit-cover shadow-sm d-none d-sm-block opd-dr-img"
               style={{
                 width: '58px',
                 height: '58px',
                 border: '2px solid var(--ayur-gold)',
-                objectPosition: '0% 50%'
+                objectPosition: '0% 50%',
+                backgroundColor: '#ffffff'
               }}
             />
             <div className="text-md-end">
               <div className="opd-dr-name fw-bold text-ayur-primary font-cinzel">
                 Dr. Sharvan Kumar
               </div>
-              <div className="small fw-semibold text-dark">
+              <div className="small fw-semibold text-dark opd-dr-degree">
                 BAMS, NET, JRF, SRF, Ph.D. (आयुर्वेद, अथर्ववेद)
               </div>
               <div className="opd-dr-sub text-muted small">
@@ -115,7 +160,7 @@ export const OpdSlip = ({ appointment }) => {
             </span>
           </div>
           <span
-            className={`badge px-2.5 py-1 rounded-pill fw-bold border ${
+            className={`badge px-3 py-1 rounded-pill fw-bold border ${
               appointment.status === 'Confirmed'
                 ? 'bg-success-subtle text-success border-success'
                 : appointment.status === 'Completed'
@@ -219,7 +264,7 @@ export const OpdSlip = ({ appointment }) => {
 
       {/* Action Buttons (Hidden when printing) */}
       <div className="d-flex flex-column flex-sm-row flex-wrap gap-2 justify-content-between align-items-stretch align-items-sm-center pt-3 border-top d-print-none">
-        <Link to="/status" className="btn btn-outline-secondary btn-sm rounded-pill px-3 text-center">
+        <Link to="/status" className="btn btn-outline-secondary btn-sm rounded-pill px-3 text-center w-100 w-sm-auto">
           <i className="fa-solid fa-arrow-left me-1"></i> Track Another Booking
         </Link>
 
@@ -227,7 +272,7 @@ export const OpdSlip = ({ appointment }) => {
           <button
             type="button"
             onClick={handlePrint}
-            className="btn btn-ayur-primary btn-sm rounded-pill px-3.5 text-center"
+            className="btn btn-ayur-primary btn-sm rounded-pill px-3 px-sm-4 text-center w-100 w-sm-auto"
           >
             <i className="fa-solid fa-print me-1"></i> Print / Save Slip (PDF)
           </button>
@@ -235,7 +280,7 @@ export const OpdSlip = ({ appointment }) => {
             href={`https://wa.me/919795578700?text=${waMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-success btn-sm rounded-pill px-3 text-center"
+            className="btn btn-success btn-sm rounded-pill px-3 text-center w-100 w-sm-auto"
           >
             <i className="fa-brands fa-whatsapp me-1"></i> Confirm on WhatsApp
           </a>

@@ -80,13 +80,13 @@ export const TreatmentDetailPage = () => {
                   <p className="small text-muted mb-0">{treatment.idealFor}</p>
                 </div>
 
-                <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center pt-3 border-top">
-                  <Link to="/treatments" className="btn btn-outline-secondary rounded-pill btn-sm px-3">
+                <div className="d-flex flex-column flex-sm-row gap-2 justify-content-between align-items-stretch align-items-sm-center pt-3 border-top">
+                  <Link to="/treatments" className="btn btn-outline-secondary rounded-pill btn-sm px-3 text-center">
                     <i className="fa-solid fa-arrow-left me-1"></i> Back to Treatments
                   </Link>
                   <Link
                     to={`/book?category=${encodeURIComponent(treatment.category)}`}
-                    className="btn btn-ayur-primary rounded-pill px-4"
+                    className="btn btn-ayur-primary rounded-pill px-4 text-center"
                   >
                     <i className="fa-solid fa-calendar-check me-2"></i> Book This Consultation
                   </Link>
@@ -127,7 +127,7 @@ export const TreatmentDetailPage = () => {
                 <div className="d-grid gap-2">
                   <Link
                     to={`/book?category=${encodeURIComponent(treatment.category)}`}
-                    className="btn btn-ayur-primary py-2.5 rounded-pill shadow-sm"
+                    className="btn btn-ayur-primary py-2 py-sm-3 rounded-pill shadow-sm"
                   >
                     <i className="fa-solid fa-calendar-check me-2"></i> Book Appointment
                   </Link>

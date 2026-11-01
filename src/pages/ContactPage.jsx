@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
 export const ContactPage = () => {
-  const { sendMessage } = useApp();
+  const { submitContactMessage, sendMessage } = useApp();
+  const sendInquiry = submitContactMessage || sendMessage;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -23,7 +24,7 @@ export const ContactPage = () => {
     e.preventDefault();
     if (!formData.name || !formData.phone || !formData.message) return;
 
-    sendMessage(formData);
+    sendInquiry(formData);
     setSubmitted(true);
     setFormData({
       name: '',
@@ -58,7 +59,7 @@ export const ContactPage = () => {
           <div className="row g-5">
             {/* Contact Info & Coordinates */}
             <div className="col-lg-5">
-              <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm h-100">
+              <div className="bg-white p-3 p-sm-4 p-md-5 rounded-4 border shadow-sm h-100">
                 <h4 className="font-cinzel fw-bold mb-4 text-ayur-primary">Clinic Coordinates</h4>
 
                 <div className="d-flex align-items-start gap-3 mb-4">
@@ -172,7 +173,7 @@ export const ContactPage = () => {
 
             {/* Online Message Inquiry Form */}
             <div className="col-lg-7">
-              <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm">
+              <div className="bg-white p-3 p-sm-4 p-md-5 rounded-4 border shadow-sm">
                 <span className="badge bg-gold-subtle text-gold px-3 py-1 rounded-pill mb-2">
                   Direct Messaging
                 </span>
@@ -255,7 +256,7 @@ export const ContactPage = () => {
 
                   <button
                     type="submit"
-                    className="btn btn-ayur-primary btn-lg rounded-pill px-4 px-sm-5 py-2.5 py-sm-3 shadow-sm fw-bold w-100 w-sm-auto"
+                    className="btn btn-ayur-primary btn-lg rounded-pill px-4 px-sm-5 py-2 py-sm-3 shadow-sm fw-bold w-100 w-sm-auto"
                     style={{ fontSize: '0.95rem' }}
                   >
                     <i className="fa-solid fa-paper-plane me-2"></i> Submit Inquiry

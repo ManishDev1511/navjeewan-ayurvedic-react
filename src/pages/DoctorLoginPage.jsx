@@ -69,7 +69,7 @@ export const DoctorLoginPage = () => {
 
             <button
               type="submit"
-              className="btn btn-ayur-primary w-100 py-2.5 rounded-pill fw-bold mt-2 shadow-sm"
+              className="btn btn-ayur-primary w-100 py-2 py-sm-3 rounded-pill fw-bold mt-2 shadow-sm"
             >
               <i className="fa-solid fa-right-to-bracket me-2"></i> Log In to Dashboard
             </button>

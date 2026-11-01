@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { useApp } from '../context/AppContext';
@@ -9,17 +9,24 @@ export const Navbar = () => {
   const { openThemeDrawer } = useTheme();
   const { isDoctorAuthenticated } = useApp();
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const location = useLocation();
 
   const toggleNav = () => setIsNavCollapsed(!isNavCollapsed);
   const closeNav = () => setIsNavCollapsed(true);
 
+  const [prevPath, setPrevPath] = useState(location.pathname);
+  if (location.pathname !== prevPath) {
+    setPrevPath(location.pathname);
+    setIsNavCollapsed(true);
+  }
+
   return (
     <header className="sticky-top bg-white border-bottom shadow-sm d-print-none">
-      <nav className="navbar navbar-expand-lg navbar-light py-1 py-lg-1.5">
+      <nav className="navbar navbar-expand-lg navbar-light py-1 py-lg-1">
         <div className="container-fluid px-3 px-lg-4 px-xxl-5">
           <Link
             to="/"
-            className="navbar-brand d-flex align-items-center gap-2 gap-sm-2.5 me-lg-3 me-xl-4 notranslate py-0"
+            className="navbar-brand d-flex align-items-center gap-2 me-lg-3 me-xl-4 notranslate py-0"
             onClick={closeNav}
           >
             <div className="brand-logo-container position-relative">
@@ -102,7 +109,7 @@ export const Navbar = () => {
                   onClick={closeNav}
                   style={{ padding: '0.35rem 0.55rem', fontSize: '0.88rem' }}
                 >
-                  <span className="badge bg-gold text-dark fw-bold me-1 py-0.5 px-1.5" style={{ fontSize: '0.68rem' }}>Free</span>
+                  <span className="badge bg-gold text-dark fw-bold me-1 py-1 px-2" style={{ fontSize: '0.68rem' }}>Free</span>
                   <span>{t('navDoshaQuiz')}</span>
                 </NavLink>
               </li>
@@ -128,9 +135,9 @@ export const Navbar = () => {
               </li>
             </ul>
 
-            <div className="navbar-action-buttons d-flex flex-wrap align-items-center gap-1.5 mt-2 mt-lg-0 ms-lg-3">
+            <div className="navbar-action-buttons d-flex flex-wrap align-items-center gap-2 mt-2 mt-lg-0 ms-lg-3">
               {/* Language Switcher Pill */}
-              <div className="lang-btn-group notranslate shadow-sm py-0.5 px-1 d-inline-flex align-items-center" role="group" aria-label="Language Selector">
+              <div className="lang-btn-group notranslate shadow-sm py-1 px-1 d-inline-flex align-items-center" role="group" aria-label="Language Selector">
                 <i className="fa-solid fa-globe text-gold ms-1 me-1" style={{ fontSize: '0.82rem' }}></i>
                 <button
                   type="button"
@@ -153,7 +160,7 @@ export const Navbar = () => {
               {/* Theme Customizer Button */}
               <button
                 type="button"
-                className="btn btn-outline-ayur-theme px-2.5 py-1.5 rounded-pill shadow-sm d-flex align-items-center gap-1"
+                className="btn btn-outline-ayur-theme px-3 py-1 rounded-pill shadow-sm d-flex align-items-center gap-1"
                 onClick={() => {
                   closeNav();
                   openThemeDrawer();
@@ -168,7 +175,7 @@ export const Navbar = () => {
               {/* Book Appointment CTA */}
               <Link
                 to="/book"
-                className="btn btn-ayur-primary px-3 py-1.5 rounded-pill shadow-sm"
+                className="btn btn-ayur-primary px-3 py-1 rounded-pill shadow-sm"
                 onClick={closeNav}
                 style={{ fontSize: '0.82rem', whiteSpace: 'nowrap' }}
               >
@@ -180,7 +187,7 @@ export const Navbar = () => {
               {isDoctorAuthenticated ? (
                 <Link
                   to="/admin"
-                  className="btn btn-success px-2.5 py-1.5 rounded-pill shadow-sm"
+                  className="btn btn-success px-3 py-1 rounded-pill shadow-sm"
                   onClick={closeNav}
                   style={{ fontSize: '0.8rem', whiteSpace: 'nowrap' }}
                 >
@@ -190,7 +197,7 @@ export const Navbar = () => {
               ) : (
                 <Link
                   to="/admin/login"
-                  className="btn btn-ayur-gold px-2.5 py-1.5 rounded-pill shadow-sm"
+                  className="btn btn-ayur-gold px-3 py-1 rounded-pill shadow-sm"
                   onClick={closeNav}
                   style={{ fontSize: '0.8rem', whiteSpace: 'nowrap' }}
                 >

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { OpdSlip } from '../components/OpdSlip';
@@ -6,9 +6,36 @@ import { OpdSlip } from '../components/OpdSlip';
 export const AppointmentSuccessPage = () => {
   const [searchParams] = useSearchParams();
   const refNo = searchParams.get('refNo');
-  const { getAppointment } = useApp();
+  const { getAppointment, fetchAppointmentByRef } = useApp();
+  const [queriedApp, setQueriedApp] = useState(null);
+  const [isFetching, setIsFetching] = useState(() => Boolean(refNo && !getAppointment(refNo)));
 
-  const appointment = getAppointment(refNo);
+  const localApp = getAppointment(refNo);
+  const appointment = localApp || queriedApp;
+  const isLoading = Boolean(!appointment && isFetching);
+
+  useEffect(() => {
+    if (!localApp && refNo && fetchAppointmentByRef) {
+      let isMounted = true;
+      fetchAppointmentByRef(refNo)
+        .then((res) => {
+          if (isMounted) {
+            if (res) {
+              setQueriedApp(res);
+            }
+            setIsFetching(false);
+          }
+        })
+        .catch(() => {
+          if (isMounted) {
+            setIsFetching(false);
+          }
+        });
+      return () => {
+        isMounted = false;
+      };
+    }
+  }, [localApp, refNo, fetchAppointmentByRef]);
 
   return (
     <section className="appointment-success-section py-4 py-md-5 bg-ayur-cream">
@@ -27,7 +54,16 @@ export const AppointmentSuccessPage = () => {
           </p>
         </div>
 
-        {appointment ? (
+        {isLoading && !appointment ? (
+          <div className="border rounded-4 p-5 bg-white text-center shadow-sm">
+            <div className="spinner-border text-gold mb-3" role="status">
+              <span className="visually-hidden">Loading OPD receipt...</span>
+            </div>
+            <p className="text-muted fw-semibold mb-0">
+              Retrieving official clinic OPD receipt for reference "{refNo}"...
+            </p>
+          </div>
+        ) : appointment ? (
           <OpdSlip appointment={appointment} />
         ) : (
           <div className="bg-white p-5 rounded-4 border text-center">
@@ -36,11 +72,11 @@ export const AppointmentSuccessPage = () => {
             <p className="text-muted">
               Reference number <strong>{refNo || 'N/A'}</strong> could not be found. Please check your reference number or book a new appointment.
             </p>
-            <div className="d-flex justify-content-center gap-2">
-              <Link to="/book" className="btn btn-ayur-primary rounded-pill px-4">
+            <div className="d-flex flex-column flex-sm-row justify-content-center gap-2">
+              <Link to="/book" className="btn btn-ayur-primary rounded-pill px-4 text-center">
                 Book Appointment
               </Link>
-              <Link to="/status" className="btn btn-outline-secondary rounded-pill px-4">
+              <Link to="/status" className="btn btn-outline-secondary rounded-pill px-4 text-center">
                 Track Existing Booking
               </Link>
             </div>

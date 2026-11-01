@@ -15,8 +15,8 @@ export const HomePage = () => {
           <div className="row align-items-center g-4 g-lg-5">
             <div className="col-lg-7">
               {/* Facebook Verified & Rating Badge */}
-              <div className="hero-badge mb-3 shadow-sm d-inline-flex flex-wrap align-items-center gap-2 p-1.5 px-3 rounded-pill bg-white border">
-                <div className="d-flex align-items-center gap-1.5">
+              <div className="hero-badge mb-3 shadow-sm d-inline-flex flex-wrap align-items-center gap-2 p-2 px-3 rounded-pill bg-white border">
+                <div className="d-flex align-items-center gap-2">
                   <i className="fa-brands fa-facebook text-primary fs-5"></i>
                   <span className="small">
                     Facebook: <strong>Nav Jeevan Upchar Kendra</strong>
@@ -50,11 +50,11 @@ export const HomePage = () => {
                 {t('heroDesc')}
               </p>
 
-              {/* Action Buttons: Sleek, proportional, no awkward wrapping */}
-              <div className="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
+              {/* Action Buttons: Sleek, proportional, responsive */}
+              <div className="d-flex flex-wrap gap-2 gap-sm-3 mb-4 hero-cta-buttons position-relative">
                 <Link
                   to="/book"
-                  className="btn btn-ayur-primary px-3.5 px-sm-4 py-2 rounded-pill shadow-sm"
+                  className="btn btn-ayur-primary px-3 px-sm-4 py-2 rounded-pill shadow-sm flex-fill flex-sm-grow-0 text-center"
                   style={{ fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                 >
                   <i className="fa-solid fa-calendar-check me-2"></i>
@@ -64,7 +64,7 @@ export const HomePage = () => {
                   href="https://wa.me/919795578700?text=Namaste%20Dr.%20Sharvan%20Kumar,%20I%20want%20to%20consult%20at%20Nav%20Jeevan%20Ayurvedic"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-ayur-outline px-3 px-sm-4 py-2 rounded-pill shadow-sm"
+                  className="btn btn-ayur-outline px-3 px-sm-4 py-2 rounded-pill shadow-sm flex-fill flex-sm-grow-0 text-center"
                   style={{ fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                 >
                   <i className="fa-brands fa-whatsapp text-whatsapp me-2 fs-5 align-middle"></i>
@@ -74,7 +74,7 @@ export const HomePage = () => {
                   href="https://www.facebook.com/p/Nav-Jeevan-Ayurvedic-Upchar-Kendra-100093061388826/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline-primary px-3 py-2 rounded-pill shadow-sm"
+                  className="btn btn-outline-primary px-3 py-2 rounded-pill shadow-sm flex-fill flex-sm-grow-0 text-center"
                   title="Visit our official Facebook page"
                   style={{ fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                 >
@@ -117,7 +117,7 @@ export const HomePage = () => {
 
             {/* Doctor & Clinic Highlight Card */}
             <div className="col-lg-5">
-              <div className="doctor-badge-card p-3.5 p-md-4 shadow-lg border bg-white rounded-4">
+              <div className="doctor-badge-card p-3 p-md-4 shadow-lg border bg-white rounded-4">
                 {/* Doctor Portrait Header */}
                 <div className="d-flex align-items-center gap-3 mb-3 p-2 bg-light rounded-4 border">
                   <div
@@ -294,7 +294,7 @@ export const HomePage = () => {
             </div>
             <Link
               to="/treatments"
-              className="btn btn-outline-ayur-theme btn-sm rounded-pill mt-3 mt-md-0 px-3 py-1.5"
+              className="btn btn-outline-ayur-theme btn-sm rounded-pill mt-3 mt-md-0 px-3 py-1 py-sm-2"
               style={{ fontSize: '0.84rem' }}
             >
               View All Treatments <i className="fa-solid fa-arrow-right ms-1"></i>
@@ -313,8 +313,8 @@ export const HomePage = () => {
                       className="treatment-img w-100 h-100 object-fit-cover"
                       loading="lazy"
                     />
-                    <div className="treatment-img-overlay">
-                      <span className="badge bg-gold text-dark fw-bold px-2.5 py-1 small rounded-pill">
+                  <div className="treatment-img-overlay">
+                      <span className="badge bg-gold text-dark fw-bold px-2 py-1 small rounded-pill">
                         {treatment.tag}
                       </span>
                     </div>
@@ -514,10 +514,10 @@ export const HomePage = () => {
                 <p className="text-light-muted mb-4 fs-6">
                   {t('quizBannerDesc')}
                 </p>
-                <div className="d-flex flex-wrap gap-2.5">
+                <div className="d-flex flex-wrap gap-2">
                   <Link
                     to="/dosha-quiz"
-                    className="btn btn-ayur-gold px-4 py-2 rounded-pill shadow-sm text-dark fw-bold"
+                    className="btn btn-ayur-gold px-4 py-2 rounded-pill shadow-sm text-dark fw-bold w-100 w-sm-auto text-center"
                     style={{ fontSize: '0.88rem' }}
                   >
                     <i className="fa-solid fa-clipboard-question me-2"></i>
@@ -575,7 +575,7 @@ export const HomePage = () => {
                 <p className="text-muted small mb-3">
                   "I had severe cervical spondylosis and neck numbness for 3 years. Doctors advised surgery. Dr. Sharvan Kumar diagnosed nerve compression with Nadi Pariksha and did Greeva Basti with Physiotherapy. Today I am 100% pain free!"
                 </p>
-                <div className="d-flex align-items-center gap-2.5">
+                <div className="d-flex align-items-center gap-2">
                   <div
                     className="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold"
                     style={{ width: '38px', height: '38px', fontSize: '0.85rem' }}
@@ -602,7 +602,7 @@ export const HomePage = () => {
                 <p className="text-muted small mb-3">
                   "Best Ayurvedic clinic in Eastern UP. Dr. Sharvan Kumar gives adequate time to listen to every patient and the OPD fee is just ₹100. The Panchakarma therapies are authentic and hygiene standards are excellent."
                 </p>
-                <div className="d-flex align-items-center gap-2.5">
+                <div className="d-flex align-items-center gap-2">
                   <div
                     className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold"
                     style={{ width: '38px', height: '38px', fontSize: '0.85rem' }}
@@ -629,7 +629,7 @@ export const HomePage = () => {
                 <p className="text-muted small mb-3">
                   "Cured my chronic IBS and acidity problems which I suffered from for 5 years. Dr. Sharvan Kumar's dietary guidance and herbal formulation Kutajghan Vati completely restored my digestion within 2 months."
                 </p>
-                <div className="d-flex align-items-center gap-2.5">
+                <div className="d-flex align-items-center gap-2">
                   <div
                     className="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center fw-bold"
                     style={{ width: '38px', height: '38px', fontSize: '0.85rem' }}
@@ -648,7 +648,7 @@ export const HomePage = () => {
       </section>
 
       {/* Quick Booking Strip */}
-      <section className="py-3.5 bg-white border-top">
+      <section className="py-4 bg-white border-top">
         <div className="container">
           <div className="row align-items-center g-3">
             <div className="col-lg-8">
@@ -660,7 +660,7 @@ export const HomePage = () => {
             <div className="col-lg-4 text-lg-end">
               <Link
                 to="/book"
-                className="btn btn-ayur-primary px-3.5 py-2 rounded-pill shadow-sm"
+                className="btn btn-ayur-primary px-4 py-2 rounded-pill shadow-sm w-100 w-sm-auto text-center"
                 style={{ fontSize: '0.88rem' }}
               >
                 <i className="fa-solid fa-calendar-check me-1.5"></i>

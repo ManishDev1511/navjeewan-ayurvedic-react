@@ -11,7 +11,10 @@ export const DoctorDashboardPage = () => {
     messages,
     isDoctorAuthenticated,
     doctorLogout,
-    updateAppointmentStatus
+    updateAppointmentStatus,
+    deleteAppointment,
+    deleteMessage,
+    seedDemoData
   } = useApp();
 
   const [activeTab, setActiveTab] = useState('appointments'); // 'appointments' or 'messages'
@@ -68,7 +71,7 @@ export const DoctorDashboardPage = () => {
       <div className="py-3 py-md-4 bg-white border-bottom">
         <div className="container d-flex flex-wrap justify-content-between align-items-center gap-2 gap-md-3">
           <div>
-            <span className="badge bg-gold text-dark fw-bold px-2 py-0.5 rounded small" style={{ fontSize: '0.72rem' }}>
+            <span className="badge bg-gold text-dark fw-bold px-2 py-1 rounded small" style={{ fontSize: '0.72rem' }}>
               Dr. Sharvan Kumar (BAMS, NET, JRF, SRF, Ph.D.)
             </span>
             <h2 className="font-cinzel fw-bold mb-0 fs-4 fs-md-2">Clinic Appointments &amp; Patients</h2>
@@ -103,7 +106,7 @@ export const DoctorDashboardPage = () => {
           {/* Metrics Row: 2x2 on mobile, 4 columns on large screens */}
           <div className="row g-2 g-md-3 mb-3 mb-md-4">
             <div className="col-6 col-md-3">
-              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
+              <div className="bg-white p-2 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-primary flex-shrink-0"
                   style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
@@ -118,7 +121,7 @@ export const DoctorDashboardPage = () => {
             </div>
 
             <div className="col-6 col-md-3">
-              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
+              <div className="bg-white p-2 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-warning flex-shrink-0"
                   style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
@@ -133,7 +136,7 @@ export const DoctorDashboardPage = () => {
             </div>
 
             <div className="col-6 col-md-3">
-              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
+              <div className="bg-white p-2 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-success flex-shrink-0"
                   style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
@@ -148,7 +151,7 @@ export const DoctorDashboardPage = () => {
             </div>
 
             <div className="col-6 col-md-3">
-              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
+              <div className="bg-white p-2 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-info flex-shrink-0"
                   style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
@@ -244,7 +247,20 @@ export const DoctorDashboardPage = () => {
                         <tr>
                           <td colSpan="6" className="text-center py-5 text-muted">
                             <i className="fa-solid fa-inbox fs-2 mb-2 d-block text-secondary"></i>
-                            No appointments found matching the current filters.
+                            <p className="mb-2">No appointments found matching the current filters.</p>
+                            {appointments.length === 0 && (
+                              <button
+                                type="button"
+                                className="btn btn-outline-ayur-primary btn-sm rounded-pill px-3 mt-1"
+                                onClick={async () => {
+                                  if (window.confirm('Load sample clinic consultation records into Firestore?')) {
+                                    await seedDemoData();
+                                  }
+                                }}
+                              >
+                                <i className="fa-solid fa-cloud-arrow-up me-1"></i> Load Demo Appointments
+                              </button>
+                            )}
                           </td>
                         </tr>
                       ) : (
@@ -286,7 +302,7 @@ export const DoctorDashboardPage = () => {
                               </td>
                               <td>
                                 <span
-                                  className={`badge px-2.5 py-1 rounded-pill ${
+                                  className={`badge px-2 py-1 rounded-pill ${
                                     app.status === 'Confirmed'
                                       ? 'bg-success text-white'
                                       : app.status === 'Completed'
@@ -325,6 +341,21 @@ export const DoctorDashboardPage = () => {
                                   >
                                     <i className="fa-solid fa-print"></i>
                                   </Link>
+                                  <button
+                                    type="button"
+                                    className="btn btn-outline-danger"
+                                    title="Delete Appointment"
+                                    onClick={() => {
+                                      if (window.confirm(`Delete appointment record ${app.referenceNumber} for ${app.fullName}?`)) {
+                                        deleteAppointment(app.referenceNumber);
+                                        if (selectedApp && selectedApp.referenceNumber === app.referenceNumber) {
+                                          setSelectedApp(null);
+                                        }
+                                      }
+                                    }}
+                                  >
+                                    <i className="fa-solid fa-trash"></i>
+                                  </button>
                                 </div>
                               </td>
                             </tr>
@@ -392,6 +423,18 @@ export const DoctorDashboardPage = () => {
                             >
                               <i className="fa-brands fa-whatsapp me-1"></i> WhatsApp
                             </a>
+                            <button
+                              type="button"
+                              className="btn btn-sm btn-outline-danger rounded-pill px-2.5"
+                              title="Delete Inquiry"
+                              onClick={() => {
+                                if (window.confirm(`Delete inquiry message from ${msg.name}?`)) {
+                                  deleteMessage(msg.id);
+                                }
+                              }}
+                            >
+                              <i className="fa-solid fa-trash"></i>
+                            </button>
                           </div>
                         </div>
                         <div className="p-2 bg-white rounded border">

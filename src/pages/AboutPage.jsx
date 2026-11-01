@@ -22,7 +22,7 @@ export const AboutPage = () => {
         <div className="container">
           <div className="row align-items-center g-5">
             <div className="col-lg-5">
-              <div className="doctor-badge-card p-3.5 p-sm-4 shadow-lg border bg-white rounded-4">
+              <div className="doctor-badge-card p-3 p-sm-4 shadow-lg border bg-white rounded-4">
                 <div className="doctor-profile-preview position-relative rounded-4 overflow-hidden mb-3 shadow-sm bg-light text-center p-3">
                   <div
                     className="mx-auto rounded-circle overflow-hidden shadow-sm mb-2"
@@ -101,7 +101,7 @@ export const AboutPage = () => {
                 </div>
 
                 <div className="d-grid gap-2">
-                  <Link to="/book" className="btn btn-ayur-primary py-2.5 rounded-pill shadow-sm">
+                  <Link to="/book" className="btn btn-ayur-primary py-2 py-sm-3 rounded-pill shadow-sm">
                     <i className="fa-solid fa-calendar-check me-2"></i> Book Appointment (₹100 OPD)
                   </Link>
                   <a

@@ -59,7 +59,7 @@ export const ThemeDrawer = () => {
               <div className="col-6">
                 <button
                   type="button"
-                  className={`btn w-100 lang-card-btn text-start p-2.5 border rounded-3 position-relative ${
+                  className={`btn w-100 lang-card-btn text-start p-2 border rounded-3 position-relative ${
                     lang === 'en' ? 'active' : ''
                   }`}
                   onClick={() => changeLanguage('en')}
@@ -78,7 +78,7 @@ export const ThemeDrawer = () => {
               <div className="col-6">
                 <button
                   type="button"
-                  className={`btn w-100 lang-card-btn text-start p-2.5 border rounded-3 position-relative ${
+                  className={`btn w-100 lang-card-btn text-start p-2 border rounded-3 position-relative ${
                     lang === 'hi' ? 'active' : ''
                   }`}
                   onClick={() => changeLanguage('hi')}
@@ -141,7 +141,7 @@ export const ThemeDrawer = () => {
                 <button
                   key={preset.id}
                   type="button"
-                  className={`btn color-preset-card text-start d-flex align-items-center gap-3 p-2.5 border rounded-3 ${
+                  className={`btn color-preset-card text-start d-flex align-items-center gap-3 p-2 border rounded-3 ${
                     color === preset.id ? 'active' : ''
                   }`}
                   onClick={() => setColor(preset.id)}

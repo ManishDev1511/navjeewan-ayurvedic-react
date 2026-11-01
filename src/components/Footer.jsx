@@ -132,12 +132,12 @@ export const Footer = () => {
 
         <hr className="border-secondary my-4" />
 
-        <div className="d-flex flex-wrap justify-content-between align-items-center text-sm text-light-muted">
+        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 text-sm text-light-muted text-center text-sm-start">
           <div>
             &copy; {currentYear} <strong>Nav Jeevan Ayurvedic Upchar Kendra</strong>. Siktaur, Gorakhpur. {t('rightsReserved')}
           </div>
           <div>
-            <span className="me-3">सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः</span>
+            <span className="me-2 me-sm-3 d-block d-sm-inline mb-1 mb-sm-0">सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः</span>
             <Link to="/privacy" className="text-light-muted">
               {t('privacyPolicy')}
             </Link>

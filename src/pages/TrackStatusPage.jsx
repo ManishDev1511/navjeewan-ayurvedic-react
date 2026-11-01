@@ -4,30 +4,68 @@ import { useApp } from '../context/AppContext';
 
 export const TrackStatusPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { getAppointment, appointments } = useApp();
+  const { getAppointment, fetchAppointmentByRef, appointments } = useApp();
 
   const qRef = searchParams.get('refNo') || '';
   const [inputRef, setInputRef] = useState(qRef);
   const [searchedRef, setSearchedRef] = useState(qRef);
   const [hasSearched, setHasSearched] = useState(Boolean(qRef));
+  const [prevQRef, setPrevQRef] = useState(qRef);
+  const [isFetching, setIsFetching] = useState(() => Boolean(qRef && !getAppointment(qRef)));
+  const [queriedApp, setQueriedApp] = useState(null);
 
-  useEffect(() => {
+  if (qRef !== prevQRef) {
+    setPrevQRef(qRef);
     if (qRef && qRef !== searchedRef) {
       setInputRef(qRef);
       setSearchedRef(qRef);
       setHasSearched(true);
+      setQueriedApp(null);
+      setIsFetching(!getAppointment(qRef));
     }
-  }, [qRef, searchedRef]);
+  }
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (!inputRef.trim()) return;
-    setSearchedRef(inputRef.trim());
+    const clean = inputRef.trim();
+    if (!clean) return;
+    setSearchedRef(clean);
     setHasSearched(true);
-    setSearchParams({ refNo: inputRef.trim() });
+    setQueriedApp(null);
+    setIsFetching(!getAppointment(clean));
+    setSearchParams({ refNo: clean });
   };
 
-  const appointment = searchedRef ? getAppointment(searchedRef) : null;
+  const stateApp = searchedRef ? getAppointment(searchedRef) : null;
+  const appointment = stateApp || queriedApp;
+  const isSearching = Boolean(searchedRef && !appointment && isFetching);
+
+  useEffect(() => {
+    if (!searchedRef || stateApp) {
+      return;
+    }
+
+    let isCancelled = false;
+    // Direct Firestore lookup if not in state
+    if (fetchAppointmentByRef) {
+      fetchAppointmentByRef(searchedRef)
+        .then((result) => {
+          if (!isCancelled) {
+            setQueriedApp(result);
+            setIsFetching(false);
+          }
+        })
+        .catch(() => {
+          if (!isCancelled) {
+            setIsFetching(false);
+          }
+        });
+    }
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [searchedRef, stateApp, fetchAppointmentByRef]);
 
   return (
     <>
@@ -46,7 +84,7 @@ export const TrackStatusPage = () => {
 
       <section className="py-5 bg-ayur-cream">
         <div className="container" style={{ maxWidth: '700px' }}>
-          <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm mb-4">
+          <div className="bg-white p-3 p-sm-4 p-md-5 rounded-4 border shadow-sm mb-4">
             <form onSubmit={handleSearch} className="mb-4">
               <label htmlFor="refNoInput" className="form-label fw-bold small text-muted text-uppercase tracking-wider">
                 Enter Appointment Reference Number:
@@ -82,6 +120,8 @@ export const TrackStatusPage = () => {
                       setInputRef(a.referenceNumber);
                       setSearchedRef(a.referenceNumber);
                       setHasSearched(true);
+                      setQueriedApp(null);
+                      setIsSearching(!getAppointment(a.referenceNumber));
                       setSearchParams({ refNo: a.referenceNumber });
                     }}
                   >
@@ -93,7 +133,14 @@ export const TrackStatusPage = () => {
 
             {/* Search Results Display */}
             {hasSearched && (
-              appointment ? (
+              isSearching && !appointment ? (
+                <div className="border rounded-4 p-5 bg-white text-center shadow-sm">
+                  <div className="spinner-border text-gold mb-3" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                  <p className="text-muted fw-semibold mb-0">Searching clinic records for reference "{searchedRef}"...</p>
+                </div>
+              ) : appointment ? (
                 <div className="border rounded-4 p-3 p-sm-4 bg-light shadow-sm">
                   <div className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
                     <div>

@@ -20,16 +20,17 @@
 }
 
 html, body {
+    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-    position: relative;
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #root {
+    width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
+    min-height: 100vh;
 }
 
 body {
@@ -563,7 +564,7 @@ h1, h2, h3, h4, h5, h6, .font-cinzel {
     justify-content: center;
     font-size: 2.1rem;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
-    z-index: 9999 !important;
+    z-index: 1015 !important;
     visibility: visible !important;
     opacity: 1 !important;
     transition: all 0.3s ease;
@@ -575,7 +576,7 @@ h1, h2, h3, h4, h5, h6, .font-cinzel {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.65), 0 8px 25px rgba(37, 211, 102, 0.4);
     }
     70% {
-        box-shadow: 0 0 0 18px rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.4);
     }
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.4);
@@ -1390,40 +1391,124 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
     margin-left: auto;
 }
 
-/* Dark Mode Screen Support for OPD Slip */
-[data-theme="dark"] .opd-slip {
-    background-color: var(--ayur-card-bg);
-    border-color: var(--ayur-border);
+/* OPD Slip: Always pure white prescription paper card aesthetic (Screen & Print) */
+.opd-slip,
+#printableSlip {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #111827 !important;
 }
-[data-theme="dark"] .opd-clinic-name,
-[data-theme="dark"] .opd-dr-name,
-[data-theme="dark"] .opd-title,
-[data-theme="dark"] .opd-ref-pill {
-    color: var(--ayur-gold-light) !important;
+
+[data-theme="dark"] .opd-slip,
+[data-theme="dark"] #printableSlip,
+[data-bs-theme="dark"] .opd-slip,
+[data-bs-theme="dark"] #printableSlip {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #cbd5e1 !important;
 }
-[data-theme="dark"] .opd-table th.table-label {
-    background-color: rgba(25, 77, 51, 0.25);
-    color: #e2ede5;
-    border-color: var(--ayur-border);
+
+[data-theme="dark"] #printableSlip .bg-white,
+[data-bs-theme="dark"] #printableSlip .bg-white {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 }
-[data-theme="dark"] .opd-table td.table-val {
-    background-color: var(--ayur-card-bg);
-    color: #f1f8f4 !important;
-    border-color: var(--ayur-border);
+
+[data-theme="dark"] #printableSlip .bg-light,
+[data-bs-theme="dark"] #printableSlip .bg-light {
+    background-color: #f8fafc !important;
+    background: #f8fafc !important;
 }
-[data-theme="dark"] .opd-vitals-box {
-    background-color: rgba(25, 77, 51, 0.15);
-    border-color: var(--ayur-border) !important;
+
+[data-theme="dark"] #printableSlip .opd-clinic-name,
+[data-theme="dark"] #printableSlip .opd-dr-name,
+[data-theme="dark"] #printableSlip .opd-title,
+[data-theme="dark"] #printableSlip .opd-ref-pill,
+[data-bs-theme="dark"] #printableSlip .opd-clinic-name,
+[data-bs-theme="dark"] #printableSlip .opd-dr-name,
+[data-bs-theme="dark"] #printableSlip .opd-title,
+[data-bs-theme="dark"] #printableSlip .opd-ref-pill {
+    color: #0b492c !important;
 }
-[data-theme="dark"] .opd-instructions {
-    background-color: rgba(198, 146, 52, 0.08);
-    border-color: rgba(198, 146, 52, 0.2) !important;
+
+[data-theme="dark"] #printableSlip .table,
+[data-bs-theme="dark"] #printableSlip .table {
+    --bs-table-bg: #ffffff !important;
+    --bs-table-color: #111827 !important;
+    --bs-table-accent-bg: transparent !important;
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #cbd5e1 !important;
 }
-[data-theme="dark"] .opd-sign-line {
-    border-color: var(--ayur-gold);
+
+[data-theme="dark"] #printableSlip .table > :not(caption) > * > *,
+[data-bs-theme="dark"] #printableSlip .table > :not(caption) > * > * {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
 }
-[data-theme="dark"] .opd-barcode {
-    color: #e2ede5 !important;
+
+[data-theme="dark"] #printableSlip .opd-table th.table-label,
+[data-bs-theme="dark"] #printableSlip .opd-table th.table-label {
+    background-color: #f8fafc !important;
+    color: #334155 !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] #printableSlip .opd-table td.table-val,
+[data-bs-theme="dark"] #printableSlip .opd-table td.table-val {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] #printableSlip .text-dark,
+[data-bs-theme="dark"] #printableSlip .text-dark,
+[data-theme="dark"] #printableSlip .opd-dr-degree,
+[data-bs-theme="dark"] #printableSlip .opd-dr-degree {
+    color: #111827 !important;
+}
+
+[data-theme="dark"] #printableSlip .text-muted,
+[data-bs-theme="dark"] #printableSlip .text-muted {
+    color: #475569 !important;
+}
+
+[data-theme="dark"] #printableSlip .opd-vitals-box,
+[data-theme="dark"] #printableSlip .opd-symptoms-box,
+[data-bs-theme="dark"] #printableSlip .opd-vitals-box,
+[data-bs-theme="dark"] #printableSlip .opd-symptoms-box {
+    background-color: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: #111827 !important;
+}
+
+[data-theme="dark"] #printableSlip .opd-doctor-box,
+[data-bs-theme="dark"] #printableSlip .opd-doctor-box {
+    background-color: #ffffff !important;
+    border-color: #157347 !important;
+    color: #111827 !important;
+}
+
+[data-theme="dark"] #printableSlip .opd-instructions,
+[data-bs-theme="dark"] #printableSlip .opd-instructions {
+    background-color: #fffdf7 !important;
+    border-color: #fce8c3 !important;
+    color: #111827 !important;
+}
+
+[data-theme="dark"] #printableSlip .opd-sign-line,
+[data-bs-theme="dark"] #printableSlip .opd-sign-line {
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] #printableSlip .opd-barcode,
+[data-bs-theme="dark"] #printableSlip .opd-barcode {
+    color: #111827 !important;
 }
 
 /* ==========================================================================
@@ -1443,19 +1528,32 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
         box-sizing: border-box !important;
     }
 
-    /* Completely hide entire website frame, headers, navbars, footers, buttons */
-    html, body {
-        background: #ffffff !important;
-        color: #111827 !important;
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-        font-size: 10pt !important;
-        line-height: 1.25 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        height: auto !important;
+    :root {
+        color-scheme: light !important;
+        --bs-body-bg: #ffffff !important;
+        --bs-body-color: #111827 !important;
+        --bs-tertiary-bg: #f8fafc !important;
+        --bs-secondary-bg: #f8fafc !important;
+        --bs-table-bg: #ffffff !important;
+        --bs-table-color: #111827 !important;
+        --bs-table-accent-bg: transparent !important;
+        --bs-border-color: #cbd5e1 !important;
+        --bs-border-color-translucent: #cbd5e1 !important;
+        --ayur-green-dark: #051c12 !important;
+        --ayur-green-primary: #0b492c !important;
+        --ayur-green-medium: #157347 !important;
+        --ayur-green-light: #24a165 !important;
+        --ayur-gold: #c68a18 !important;
+        --ayur-gold-light: #9a6d10 !important;
+        --ayur-gold-bg: #fff8e6 !important;
+        --ayur-cream: #ffffff !important;
+        --ayur-card-bg: #ffffff !important;
+        --ayur-text-dark: #111827 !important;
+        --ayur-text-muted: #475569 !important;
+        --ayur-border: #cbd5e1 !important;
     }
 
+    /* Completely hide entire website frame, headers, navbars, footers, buttons */
     .top-bar,
     header,
     footer,
@@ -1465,6 +1563,7 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
     .navbar-toggler,
     .floating-theme-toggle,
     .floating-whatsapp,
+    .floating-lang-toggle,
     .theme-offcanvas,
     .offcanvas,
     .no-print,
@@ -1474,6 +1573,7 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
     .modal,
     .theme-tooltip,
     .wa-tooltip,
+    .lang-tooltip,
     .social-links {
         display: none !important;
         visibility: hidden !important;
@@ -1488,10 +1588,76 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
         left: -9999px !important;
     }
 
+    /* Force pure white background and crisp dark text on html & body regardless of active theme */
+    html,
+    html[data-theme],
+    html[data-theme="dark"],
+    html[data-bs-theme],
+    html[data-bs-theme="dark"],
+    body,
+    body[data-theme],
+    body[data-theme="dark"],
+    body[data-bs-theme],
+    body[data-bs-theme="dark"],
+    #root,
+    [data-theme="dark"],
+    [data-bs-theme="dark"],
+    [data-theme="dark"] body,
+    [data-bs-theme="dark"] body,
+    [data-theme="dark"] main,
+    [data-bs-theme="dark"] main,
+    [data-theme="dark"] .appointment-success-section,
+    [data-bs-theme="dark"] .appointment-success-section,
+    [data-theme="dark"] .appointment-success-section .container,
+    [data-bs-theme="dark"] .appointment-success-section .container {
+        color-scheme: light !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        font-size: 10pt !important;
+        line-height: 1.25 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: none !important;
+    }
+
+    /* Neutralize all dark mode background/text classes in print mode */
+    [data-theme="dark"] .bg-white,
+    [data-bs-theme="dark"] .bg-white,
+    [data-theme="dark"] .bg-light,
+    [data-bs-theme="dark"] .bg-light,
+    [data-theme="dark"] .bg-ayur-cream,
+    [data-bs-theme="dark"] .bg-ayur-cream,
+    [data-theme="dark"] header.bg-white,
+    [data-bs-theme="dark"] header.bg-white {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+    }
+
+    [data-theme="dark"] :not(.badge):not(.btn).text-dark,
+    [data-bs-theme="dark"] :not(.badge):not(.btn).text-dark,
+    [data-theme="dark"] .text-dark,
+    [data-bs-theme="dark"] .text-dark {
+        color: #111827 !important;
+    }
+
+    [data-theme="dark"] .text-muted,
+    [data-bs-theme="dark"] .text-muted,
+    [data-theme="dark"] small.text-muted,
+    [data-bs-theme="dark"] small.text-muted,
+    [data-theme="dark"] .text-muted small,
+    [data-bs-theme="dark"] .text-muted small {
+        color: #475569 !important;
+    }
+
     main {
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
+        background: #ffffff !important;
     }
 
     .appointment-success-section {
@@ -1507,17 +1673,23 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
         margin: 0 !important;
     }
 
-    /* Target Slip Container - strict single page fit */
-    #printableSlip.opd-slip {
+    /* Target Slip Container - strict pure white, crisp borders, single page fit */
+    #printableSlip,
+    #printableSlip.opd-slip,
+    .opd-slip,
+    [data-theme="dark"] #printableSlip,
+    [data-theme="dark"] .opd-slip {
         display: block !important;
         position: relative !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 10px 16px !important;
-        border: 2px solid #194d33 !important;
+        padding: 10px 14px !important;
+        border: 2px solid #0b492c !important;
         border-radius: 6px !important;
         background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #111827 !important;
         box-shadow: none !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
@@ -1527,114 +1699,281 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
         break-after: avoid !important;
     }
 
-    .opd-letterhead {
+    #printableSlip *,
+    [data-theme="dark"] #printableSlip * {
+        color-scheme: light !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Letterhead & Branding */
+    #printableSlip .opd-letterhead,
+    [data-theme="dark"] #printableSlip .opd-letterhead {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #111827 !important;
         margin-bottom: 4px !important;
         padding-bottom: 4px !important;
     }
 
-    .opd-brand-logo {
+    #printableSlip .opd-brand-logo,
+    [data-theme="dark"] #printableSlip .opd-brand-logo {
         width: 38px !important;
         height: 38px !important;
         font-size: 1.1rem !important;
-        background: #194d33 !important;
+        background: #0b492c !important;
         color: #ffffff !important;
-        border: 1px solid #c69234 !important;
+        border: 1px solid #c68a18 !important;
         border-radius: 8px !important;
     }
 
-    .opd-clinic-name {
-        font-size: 14pt !important;
-        color: #194d33 !important;
+    #printableSlip .opd-clinic-name,
+    [data-theme="dark"] #printableSlip .opd-clinic-name {
+        font-size: 13.5pt !important;
+        color: #0b492c !important;
         font-family: 'Cinzel', serif !important;
-        line-height: 1.1 !important;
+        line-height: 1.15 !important;
     }
 
-    .opd-clinic-tagline {
+    #printableSlip .opd-clinic-tagline,
+    [data-theme="dark"] #printableSlip .opd-clinic-tagline {
         font-size: 7pt !important;
-        letter-spacing: 1px !important;
+        letter-spacing: 1.2px !important;
         color: #855d14 !important;
+        font-weight: 700 !important;
     }
 
-    .opd-reg-info {
+    #printableSlip .opd-reg-info,
+    [data-theme="dark"] #printableSlip .opd-reg-info,
+    #printableSlip .opd-dr-sub,
+    [data-theme="dark"] #printableSlip .opd-dr-sub,
+    #printableSlip .opd-dr-reg,
+    [data-theme="dark"] #printableSlip .opd-dr-reg {
         font-size: 7.2pt !important;
         color: #475569 !important;
     }
 
-    .opd-dr-name {
-        font-size: 12pt !important;
-        color: #194d33 !important;
+    #printableSlip .opd-dr-name,
+    [data-theme="dark"] #printableSlip .opd-dr-name {
+        font-size: 11.5pt !important;
+        color: #0b492c !important;
         font-family: 'Cinzel', serif !important;
-        line-height: 1.1 !important;
+        line-height: 1.15 !important;
     }
 
-    .opd-dr-sub,
-    .opd-dr-reg {
-        font-size: 7.2pt !important;
-        color: #475569 !important;
+    #printableSlip .opd-doctor-info,
+    [data-theme="dark"] #printableSlip .opd-doctor-info {
+        color: #111827 !important;
     }
 
-    .opd-contact-bar {
+    #printableSlip .opd-dr-degree,
+    [data-theme="dark"] #printableSlip .opd-dr-degree,
+    [data-bs-theme="dark"] #printableSlip .opd-dr-degree {
+        color: #111827 !important;
+        font-size: 7.8pt !important;
+        font-weight: 600 !important;
+    }
+
+    #printableSlip .opd-doctor-info img {
+        display: block !important;
+        width: 48px !important;
+        height: 48px !important;
+        border: 1.5px solid #c68a18 !important;
+        background: #ffffff !important;
+    }
+
+    #printableSlip .opd-contact-bar,
+    [data-theme="dark"] #printableSlip .opd-contact-bar {
         font-size: 7.5pt !important;
         margin-top: 4px !important;
         padding-top: 3px !important;
         color: #334155 !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
         border-top: 1px solid #cbd5e1 !important;
     }
 
-    .opd-divider-double {
-        border-top: 2px solid #194d33 !important;
-        border-bottom: 1px solid #c69234 !important;
+    #printableSlip .opd-divider-double,
+    [data-theme="dark"] #printableSlip .opd-divider-double {
+        border-top: 2px solid #0b492c !important;
+        border-bottom: 1px solid #c68a18 !important;
         height: 3px !important;
         margin-bottom: 6px !important;
+        background: transparent !important;
     }
 
-    .opd-ribbon {
+    #printableSlip .opd-ribbon,
+    [data-theme="dark"] #printableSlip .opd-ribbon {
         background: #f1f8f4 !important;
-        border: 1px solid #194d33 !important;
+        background-color: #f1f8f4 !important;
+        border: 1px solid #0b492c !important;
         padding: 4px 8px !important;
         margin-bottom: 6px !important;
         border-radius: 4px !important;
     }
 
-    .opd-title {
+    #printableSlip .opd-title,
+    [data-theme="dark"] #printableSlip .opd-title {
         font-size: 9pt !important;
-        color: #194d33 !important;
+        color: #0b492c !important;
     }
 
-    .opd-ref-pill {
-        font-size: 10.5pt !important;
-        color: #194d33 !important;
+    #printableSlip .opd-ref-pill,
+    [data-theme="dark"] #printableSlip .opd-ref-pill {
+        font-size: 10pt !important;
+        color: #0b492c !important;
+        font-weight: 700 !important;
     }
 
-    .opd-details-table-wrap {
+    /* OPD Table & Row Backgrounds */
+    #printableSlip .opd-details-table-wrap,
+    [data-theme="dark"] #printableSlip .opd-details-table-wrap {
         margin-bottom: 6px !important;
+        overflow: visible !important;
     }
 
-    .opd-table {
+    #printableSlip .table-responsive {
+        overflow: visible !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    #printableSlip table,
+    #printableSlip .table,
+    #printableSlip .opd-table,
+    [data-theme="dark"] #printableSlip .opd-table,
+    [data-bs-theme="dark"] #printableSlip .opd-table {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
         border: 1px solid #cbd5e1 !important;
         margin-bottom: 0 !important;
         width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        --bs-table-bg: #ffffff !important;
+        --bs-table-color: #111827 !important;
+        --bs-table-accent-bg: transparent !important;
     }
 
-    .opd-table th,
-    .opd-table td {
-        padding: 3px 6px !important;
-        font-size: 8.5pt !important;
+    #printableSlip table th,
+    #printableSlip table td,
+    #printableSlip .opd-table th,
+    #printableSlip .opd-table td,
+    #printableSlip .table > :not(caption) > * > *,
+    [data-theme="dark"] #printableSlip .table > :not(caption) > * > *,
+    [data-bs-theme="dark"] #printableSlip .table > :not(caption) > * > *,
+    [data-theme="dark"] #printableSlip .opd-table th,
+    [data-theme="dark"] #printableSlip .opd-table td,
+    [data-bs-theme="dark"] #printableSlip .opd-table th,
+    [data-bs-theme="dark"] #printableSlip .opd-table td {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        padding: 4px 6px !important;
+        font-size: 8.2pt !important;
         border: 1px solid #cbd5e1 !important;
-        line-height: 1.2 !important;
+        line-height: 1.25 !important;
+        box-shadow: none !important;
     }
 
-    .table-label {
+    #printableSlip .opd-table th.table-label,
+    #printableSlip .table-label,
+    [data-theme="dark"] #printableSlip .opd-table th.table-label,
+    [data-theme="dark"] #printableSlip .table-label,
+    [data-bs-theme="dark"] #printableSlip .opd-table th.table-label,
+    [data-bs-theme="dark"] #printableSlip .table-label {
+        background: #f8fafc !important;
         background-color: #f8fafc !important;
         color: #334155 !important;
         font-weight: 600 !important;
+        box-shadow: none !important;
     }
 
-    .table-val {
+    #printableSlip .opd-table td.table-val,
+    #printableSlip .table-val,
+    [data-theme="dark"] #printableSlip .opd-table td.table-val,
+    [data-theme="dark"] #printableSlip .table-val,
+    [data-bs-theme="dark"] #printableSlip .opd-table td.table-val,
+    [data-bs-theme="dark"] #printableSlip .table-val {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
         color: #0f172a !important;
+        box-shadow: none !important;
     }
 
-    .badge-mode-inclinic {
+    /* Boxes: Symptoms, Doctor Notes, Instructions */
+    #printableSlip .opd-symptoms-box,
+    [data-theme="dark"] #printableSlip .opd-symptoms-box {
+        border: 1px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+        background-color: #f8fafc !important;
+        color: #111827 !important;
+        padding: 4px 8px !important;
+        margin-bottom: 5px !important;
+        border-radius: 4px !important;
+    }
+
+    #printableSlip .opd-doctor-box,
+    [data-theme="dark"] #printableSlip .opd-doctor-box {
+        border: 1.5px solid #157347 !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        padding: 4px 8px !important;
+        margin-bottom: 5px !important;
+        border-radius: 4px !important;
+    }
+
+    #printableSlip .opd-instructions,
+    [data-theme="dark"] #printableSlip .opd-instructions {
+        border: 1px solid #fce8c3 !important;
+        background: #fffdf7 !important;
+        background-color: #fffdf7 !important;
+        color: #111827 !important;
+        padding: 4px 8px !important;
+        margin-bottom: 5px !important;
+        border-radius: 4px !important;
+    }
+
+    #printableSlip .opd-instructions h6,
+    [data-theme="dark"] #printableSlip .opd-instructions h6 {
+        color: #0b492c !important;
+        font-size: 8pt !important;
+        margin-bottom: 2px !important;
+    }
+
+    #printableSlip .opd-instructions ul,
+    #printableSlip .opd-instructions li,
+    [data-theme="dark"] #printableSlip .opd-instructions ul,
+    [data-theme="dark"] #printableSlip .opd-instructions li {
+        color: #475569 !important;
+        font-size: 7.2pt !important;
+        line-height: 1.25 !important;
+    }
+
+    #printableSlip .text-ayur-primary,
+    [data-theme="dark"] #printableSlip .text-ayur-primary {
+        color: #0b492c !important;
+    }
+
+    #printableSlip .text-success,
+    [data-theme="dark"] #printableSlip .text-success {
+        color: #157347 !important;
+    }
+
+    #printableSlip .text-gold,
+    [data-theme="dark"] #printableSlip .text-gold {
+        color: #c68a18 !important;
+    }
+
+    #printableSlip .badge,
+    [data-theme="dark"] #printableSlip .badge {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    #printableSlip .badge-mode-inclinic {
         background-color: #d1fae5 !important;
         color: #065f46 !important;
         border: 1px solid #059669 !important;
@@ -1642,7 +1981,7 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
         padding: 1px 5px !important;
     }
 
-    .badge-mode-online {
+    #printableSlip .badge-mode-online {
         background-color: #e0f2fe !important;
         color: #0369a1 !important;
         border: 1px solid #0284c7 !important;
@@ -1650,76 +1989,29 @@ html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card
         padding: 1px 5px !important;
     }
 
-    .opd-vitals-box {
-        border: 1px solid #cbd5e1 !important;
-        background: #fbfdfb !important;
-        padding: 5px 8px !important;
-        margin-bottom: 6px !important;
-        border-radius: 4px !important;
+    .badge.bg-success-subtle {
+        background-color: #d1fae5 !important;
+        color: #065f46 !important;
     }
 
-    .opd-vitals-box .row > div {
-        font-size: 8pt !important;
+    .badge.bg-primary-subtle {
+        background-color: #e0f2fe !important;
+        color: #0369a1 !important;
     }
 
-    .ruled-line {
-        border-bottom: 1px dashed #94a3b8 !important;
-        height: 12px !important;
-        margin-top: 2px !important;
+    .badge.bg-info-subtle {
+        background-color: #e0f2fe !important;
+        color: #0284c7 !important;
     }
 
-    .opd-instructions {
-        border: 1px solid #e2e8f0 !important;
-        background: #fffefb !important;
-        padding: 5px 8px !important;
-        margin-bottom: 6px !important;
-        border-radius: 4px !important;
+    .badge.bg-danger-subtle {
+        background-color: #fee2e2 !important;
+        color: #b91c1c !important;
     }
 
-    .opd-instructions .row > div {
-        font-size: 7.2pt !important;
-        line-height: 1.2 !important;
-    }
-
-    .opd-slip-footer {
-        padding-top: 5px !important;
-        border-top: 1px solid #cbd5e1 !important;
-    }
-
-    .opd-barcode {
-        font-size: 8pt !important;
-        letter-spacing: 2px !important;
-        color: #000000 !important;
-    }
-
-    .opd-token-hash {
-        font-size: 6.8pt !important;
-    }
-
-    .opd-shloka {
-        display: block !important;
-    }
-
-    .opd-shloka .text-ayur-primary {
-        font-size: 8pt !important;
-        color: #194d33 !important;
-    }
-
-    .opd-stamp-box {
-        font-size: 7pt !important;
-    }
-
-    .opd-seal-circle {
-        border: 1px dashed #c69234 !important;
-        color: #855d14 !important;
-        padding: 2px 6px !important;
-        font-size: 6.5pt !important;
-    }
-
-    .opd-sign-line {
-        width: 130px !important;
-        border-bottom: 1px solid #0f172a !important;
-        margin-left: auto !important;
+    .badge.bg-gold-subtle {
+        background-color: #fff8e6 !important;
+        color: #b45309 !important;
     }
 }
 
@@ -1852,6 +2144,23 @@ main .sticky-top,
     text-underline-offset: 3px;
 }
 
+.top-theme-btn {
+    color: var(--ayur-gold-light) !important;
+    font-size: 0.88rem;
+    padding: 2px 7px !important;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(198, 138, 24, 0.45);
+    border-radius: 50px;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.25s ease;
+}
+.top-theme-btn:hover {
+    color: #ffffff !important;
+    background: rgba(198, 138, 24, 0.28);
+    transform: rotate(15deg);
+}
+
 /* Floating Language Toggle */
 .floating-lang-toggle {
     position: fixed;
@@ -1927,21 +2236,34 @@ main .sticky-top,
     right: 24px;
     background: linear-gradient(135deg, #051c12, #0b492c);
     color: #ffffff;
-    padding: 12px 22px;
+    padding: 10px 20px;
     border-radius: 50px;
     border: 1.5px solid var(--ayur-gold);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
-    z-index: 999999;
+    z-index: 1070;
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: calc(100vw - 32px);
 }
 .lang-notification-toast.show {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
+}
+@media (max-width: 576px) {
+    .lang-notification-toast {
+        top: 14px;
+        right: 16px;
+        left: 16px;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        padding: 8px 14px;
+    }
 }
 
 /* Dark Mode Overrides for Language Switcher */
@@ -1998,41 +2320,37 @@ main .sticky-top,
 }
 
 /* Floating Action Buttons: Tablet & Mobile Positioning with Safe Area Insets */
-@media (max-width: 768px) {
+@media (max-width: 991.98px) {
+    /* Hide bottom-left floating toggles on mobile & tablet viewports so they do not obstruct hero CTA buttons or page content */
+    .floating-theme-toggle,
+    .floating-lang-toggle {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
     .floating-whatsapp {
-        bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
-        right: calc(18px + env(safe-area-inset-right, 0px)) !important;
-        width: 56px !important;
-        height: 56px !important;
-        font-size: 2rem !important;
-        z-index: 9999 !important;
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+        width: 54px !important;
+        height: 54px !important;
+        font-size: 1.9rem !important;
+        z-index: 1015 !important;
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: auto !important;
         touch-action: manipulation;
     }
-    .floating-theme-toggle {
-        bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
-        left: calc(18px + env(safe-area-inset-left, 0px)) !important;
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 1.25rem !important;
-        z-index: 998 !important;
-        display: flex !important;
-        pointer-events: auto !important;
-        touch-action: manipulation;
-    }
-    .floating-lang-toggle {
-        bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
-        left: calc(18px + env(safe-area-inset-left, 0px)) !important;
-        height: 42px !important;
-        padding: 0 14px !important;
-        font-size: 0.84rem !important;
-        z-index: 998 !important;
-        display: flex !important;
-        pointer-events: auto !important;
-        touch-action: manipulation;
+
+    /* Unconditionally suppress hover tooltips on touch and mobile viewports */
+    .wa-tooltip,
+    .theme-tooltip,
+    .lang-tooltip {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
 
     /* Prevent iOS auto-zoom on form inputs */
@@ -2046,36 +2364,49 @@ main .sticky-top,
 
 /* Small Smartphone Viewports (320px - 576px) */
 @media (max-width: 576px) {
-    .floating-whatsapp {
-        bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
-        right: calc(14px + env(safe-area-inset-right, 0px)) !important;
-        width: 52px !important;
-        height: 52px !important;
-        font-size: 1.85rem !important;
+    .top-bar-info {
+        font-size: 0.76rem !important;
     }
-    .floating-theme-toggle {
-        bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
-        left: calc(14px + env(safe-area-inset-left, 0px)) !important;
-        width: 44px !important;
-        height: 44px !important;
-        font-size: 1.15rem !important;
+    .lang-switch-top {
+        padding: 2px 7px !important;
+        gap: 4px !important;
+        font-size: 0.74rem !important;
     }
-    .floating-lang-toggle {
-        bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
-        left: calc(14px + env(safe-area-inset-left, 0px)) !important;
-        height: 38px !important;
-        padding: 0 10px !important;
-        font-size: 0.78rem !important;
+    .lang-top-btn {
+        font-size: 0.74rem !important;
+    }
+    .top-theme-btn {
+        padding: 2px 6px !important;
+        font-size: 0.8rem !important;
+    }
+    .top-link {
+        font-size: 0.76rem !important;
     }
 
-    /* Extra bottom clearance for footer on mobile so floating buttons don't block content */
+    .floating-theme-toggle,
+    .floating-lang-toggle {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .floating-whatsapp {
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(14px + env(safe-area-inset-right, 0px)) !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.75rem !important;
+    }
+
+    /* Extra bottom clearance for footer on mobile so floating WhatsApp doesn't block footer links */
     footer.ayurveda-footer {
-        padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+        padding-bottom: calc(85px + env(safe-area-inset-bottom, 0px)) !important;
     }
 
     /* Hero refinements for narrow screens */
     .hero-title {
-        font-size: 1.85rem !important;
+        font-size: 1.75rem !important;
         line-height: 1.25 !important;
         word-break: break-word !important;
     }
@@ -2092,7 +2423,7 @@ main .sticky-top,
         margin-bottom: 1.25rem !important;
     }
 
-    /* OPD slip mobile compact typography */
+    /* OPD slip mobile compact typography & minimum width to prevent crushed columns */
     .opd-slip {
         padding: 0.85rem !important;
     }
@@ -2105,6 +2436,9 @@ main .sticky-top,
     .opd-ref-pill {
         font-size: 0.88rem !important;
     }
+    .opd-table {
+        min-width: 480px !important;
+    }
     .opd-table th.table-label,
     .opd-table td.table-val {
         padding: 6px 8px !important;
@@ -2112,16 +2446,17 @@ main .sticky-top,
     }
 }
 
-/* Touchscreens: Hide hover tooltips so they do not stay stuck on mobile screens */
-@media (hover: none) and (pointer: coarse) {
-    .wa-tooltip,
-    .theme-tooltip,
-    .lang-tooltip {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-    }
-}
+/* Fallback definitions for decimal utility classes */
+.p-2\.5 { padding: 0.75rem !important; }
+.p-3\.5 { padding: 1.15rem !important; }
+.py-0\.5 { padding-top: 0.2rem !important; padding-bottom: 0.2rem !important; }
+.py-1\.5 { padding-top: 0.45rem !important; padding-bottom: 0.45rem !important; }
+.py-2\.5 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+.px-1\.5 { padding-left: 0.45rem !important; padding-right: 0.45rem !important; }
+.px-2\.5 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+.px-3\.5 { padding-left: 1.15rem !important; padding-right: 1.15rem !important; }
+.gap-1\.5 { gap: 0.45rem !important; }
+.gap-2\.5 { gap: 0.75rem !important; }
 
 /* ==========================================================================
    Google Translate Widget Hidden & Clean Aesthetics

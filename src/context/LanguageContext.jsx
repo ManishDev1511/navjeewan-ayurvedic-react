@@ -44,7 +44,7 @@ export const LanguageProvider = ({ children }) => {
     <LanguageContext.Provider value={{ lang, changeLanguage, toggleLanguage, t, toastMessage }}>
       {children}
       {toastMessage && (
-        <div className="lang-notification-toast shadow-lg d-flex align-items-center gap-2 animate__animated animate__fadeInDown">
+        <div className="lang-notification-toast show shadow-lg d-flex align-items-center gap-2" role="status" aria-live="polite">
           <i className="fa-solid fa-language text-gold fs-5"></i>
           <span className="small fw-bold">{toastMessage}</span>
         </div>
