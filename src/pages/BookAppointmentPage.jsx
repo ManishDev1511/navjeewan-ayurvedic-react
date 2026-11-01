@@ -107,7 +107,7 @@ export const BookAppointmentPage = () => {
         <div className="container" style={{ maxWidth: '950px' }}>
           <div className="row g-4">
             <div className="col-lg-8">
-              <div className="bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+              <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm">
                 <form onSubmit={handleSubmit} id="appointmentForm">
                   <h5 className="fw-bold text-ayur-primary mb-3 border-bottom pb-2">
                     <i className="fa-solid fa-user me-2 text-gold"></i> Patient Details
@@ -266,7 +266,8 @@ export const BookAppointmentPage = () => {
 
                   <button
                     type="submit"
-                    className="btn btn-ayur-primary btn-lg w-100 rounded-pill py-3 shadow-sm fw-bold"
+                    className="btn btn-ayur-primary btn-lg w-100 rounded-pill py-2.5 py-sm-3 shadow-sm fw-bold"
+                    style={{ fontSize: '0.95rem' }}
                   >
                     <i className="fa-solid fa-circle-check me-2"></i> Confirm &amp; Generate OPD Slip
                   </button>
@@ -276,7 +277,7 @@ export const BookAppointmentPage = () => {
 
             {/* Sidebar Information Card */}
             <div className="col-lg-4">
-              <div className="bg-white p-4 rounded-4 border shadow-sm sticky-top" style={{ top: '100px' }}>
+              <div className="bg-white p-3.5 p-sm-4 rounded-4 border shadow-sm sticky-lg-top" style={{ top: '100px' }}>
                 <div className="text-center pb-3 border-bottom mb-3">
                   <div className="badge bg-gold text-dark px-3 py-1.5 rounded-pill fw-bold mb-2">
                     <i className="fa-solid fa-tag me-1"></i> OPD Fee: ₹100/- Only

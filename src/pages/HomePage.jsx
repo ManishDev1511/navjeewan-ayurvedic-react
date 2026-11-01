@@ -15,12 +15,14 @@ export const HomePage = () => {
           <div className="row align-items-center g-4 g-lg-5">
             <div className="col-lg-7">
               {/* Facebook Verified & Rating Badge */}
-              <div className="hero-badge mb-3 shadow-sm d-inline-flex align-items-center gap-2 p-1.5 px-3 rounded-pill bg-white border">
-                <i className="fa-brands fa-facebook text-primary fs-5"></i>
-                <span className="small">
-                  Official Facebook: <strong>Nav Jeevan Ayurvedic Upchar Kendra</strong>
-                </span>
-                <span className="badge bg-gold text-dark ms-1">
+              <div className="hero-badge mb-3 shadow-sm d-inline-flex flex-wrap align-items-center gap-2 p-1.5 px-3 rounded-pill bg-white border">
+                <div className="d-flex align-items-center gap-1.5">
+                  <i className="fa-brands fa-facebook text-primary fs-5"></i>
+                  <span className="small">
+                    Facebook: <strong>Nav Jeevan Upchar Kendra</strong>
+                  </span>
+                </div>
+                <span className="badge bg-gold text-dark ms-auto ms-sm-1">
                   <i className="fa-solid fa-star me-1"></i>4.8 / 5 Rating
                 </span>
               </div>
@@ -49,11 +51,11 @@ export const HomePage = () => {
               </p>
 
               {/* Action Buttons: Sleek, proportional, no awkward wrapping */}
-              <div className="d-flex flex-wrap gap-3 mb-4">
+              <div className="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
                 <Link
                   to="/book"
-                  className="btn btn-ayur-primary px-4 py-2 rounded-pill shadow-sm"
-                  style={{ fontSize: '0.92rem', whiteSpace: 'nowrap' }}
+                  className="btn btn-ayur-primary px-3.5 px-sm-4 py-2 rounded-pill shadow-sm"
+                  style={{ fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                 >
                   <i className="fa-solid fa-calendar-check me-2"></i>
                   {t('btnBookOpd')}
@@ -62,8 +64,8 @@ export const HomePage = () => {
                   href="https://wa.me/919795578700?text=Namaste%20Dr.%20Sharvan%20Kumar,%20I%20want%20to%20consult%20at%20Nav%20Jeevan%20Ayurvedic"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-ayur-outline px-4 py-2 rounded-pill shadow-sm"
-                  style={{ fontSize: '0.92rem', whiteSpace: 'nowrap' }}
+                  className="btn btn-ayur-outline px-3 px-sm-4 py-2 rounded-pill shadow-sm"
+                  style={{ fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                 >
                   <i className="fa-brands fa-whatsapp text-whatsapp me-2 fs-5 align-middle"></i>
                   097955 78700
@@ -74,7 +76,7 @@ export const HomePage = () => {
                   rel="noopener noreferrer"
                   className="btn btn-outline-primary px-3 py-2 rounded-pill shadow-sm"
                   title="Visit our official Facebook page"
-                  style={{ fontSize: '0.92rem', whiteSpace: 'nowrap' }}
+                  style={{ fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                 >
                   <i className="fa-brands fa-facebook me-1"></i>
                   {t('btnFacebookPage')}
@@ -177,7 +179,7 @@ export const HomePage = () => {
                 <div className="bg-light p-3 rounded-3 mb-3 border small">
                   <div className="d-flex justify-content-between align-items-center py-1 border-bottom">
                     <span className="text-muted"><i className="fa-solid fa-location-dot me-1.5 text-gold"></i> Location:</span>
-                    <span className="fw-semibold text-end text-truncate ms-2" style={{ maxWidth: '240px' }}>
+                    <span className="fw-semibold text-end text-truncate ms-2" style={{ maxWidth: '180px' }}>
                       Siktaur Chauraha, Gorakhpur
                     </span>
                   </div>

@@ -65,7 +65,7 @@ export const ThemeDrawer = () => {
                   onClick={() => changeLanguage('en')}
                 >
                   <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span className="fs-4">🇬🇧</span>
+                    <span className="fs-5 text-gold"><i className="fa-solid fa-globe"></i></span>
                     {lang === 'en' && <i className="fa-solid fa-circle-check text-gold check-indicator fs-5"></i>}
                   </div>
                   <span className="fw-bold d-block small">English</span>
@@ -84,7 +84,7 @@ export const ThemeDrawer = () => {
                   onClick={() => changeLanguage('hi')}
                 >
                   <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span className="fs-4">🇮🇳</span>
+                    <span className="fs-5 text-gold"><i className="fa-solid fa-language"></i></span>
                     {lang === 'hi' && <i className="fa-solid fa-circle-check text-gold check-indicator fs-5"></i>}
                   </div>
                   <span className="fw-bold d-block small">हिन्दी (Hindi)</span>

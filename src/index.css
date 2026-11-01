@@ -19,6 +19,19 @@
     --shadow-gold: 0 0 20px rgba(198, 138, 24, 0.35);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
+
+#root {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
 body {
     font-family: var(--font-body);
     color: var(--ayur-text-dark);
@@ -172,10 +185,13 @@ h1, h2, h3, h4, h5, h6, .font-cinzel {
     .navbar-collapse {
         background: #ffffff;
         border-radius: 16px;
-        padding: 1.25rem;
+        padding: 1.15rem;
         margin-top: 0.75rem;
         border: 1px solid var(--ayur-border);
         box-shadow: 0 12px 30px rgba(10, 33, 24, 0.08);
+        max-height: calc(85vh - 65px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     .navbar-nav .nav-link {
         padding: 0.65rem 1rem !important;
@@ -191,19 +207,35 @@ h1, h2, h3, h4, h5, h6, .font-cinzel {
         color: var(--ayur-green-primary) !important;
     }
     .navbar-action-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-left: 0;
-        margin-top: 0.75rem;
-        padding-top: 0.75rem;
-        border-top: 1px solid var(--ayur-border);
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.6rem !important;
+        margin-left: 0 !important;
+        margin-top: 0.75rem !important;
+        padding-top: 0.75rem !important;
+        border-top: 1px solid var(--ayur-border) !important;
+        width: 100% !important;
     }
     .navbar-action-buttons .btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        padding: 0.6rem 1rem;
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 0.62rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 50px !important;
+    }
+    .navbar-action-buttons .lang-btn-group {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 4px !important;
+        border-radius: 50px !important;
+    }
+    .navbar-action-buttons .lang-pill-btn {
+        flex: 1 !important;
+        justify-content: center !important;
+        padding: 6px 14px !important;
+        font-size: 0.88rem !important;
     }
 }
 
@@ -518,20 +550,22 @@ h1, h2, h3, h4, h5, h6, .font-cinzel {
 
 /* Floating WhatsApp with Pulsing Radar Effect */
 .floating-whatsapp {
-    position: fixed;
+    position: fixed !important;
     bottom: 30px;
     right: 30px;
     width: 62px;
     height: 62px;
     background: linear-gradient(135deg, #25d366, #128c7e);
-    color: #ffffff;
+    color: #ffffff !important;
     border-radius: 50%;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     font-size: 2.1rem;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
-    z-index: 999;
+    z-index: 9999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     transition: all 0.3s ease;
     text-decoration: none;
     animation: waRadar 2.4s infinite;
@@ -1944,7 +1978,11 @@ main .sticky-top,
     border-color: var(--ayur-gold-light) !important;
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsive Polish
+   ========================================================================== */
+
+/* Navbar Mobile Action Buttons */
 @media (max-width: 991.98px) {
     .navbar-action-buttons .lang-btn-group {
         width: 100%;
@@ -1959,17 +1997,129 @@ main .sticky-top,
     }
 }
 
-@media (max-width: 576px) {
-    .floating-lang-toggle {
-        bottom: 82px;
-        left: 16px;
-        height: 42px;
-        padding: 0 12px;
-        font-size: 0.82rem;
+/* Floating Action Buttons: Tablet & Mobile Positioning with Safe Area Insets */
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(18px + env(safe-area-inset-right, 0px)) !important;
+        width: 56px !important;
+        height: 56px !important;
+        font-size: 2rem !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        touch-action: manipulation;
     }
     .floating-theme-toggle {
-        bottom: 24px;
-        left: 16px;
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+        left: calc(18px + env(safe-area-inset-left, 0px)) !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.25rem !important;
+        z-index: 998 !important;
+        display: flex !important;
+        pointer-events: auto !important;
+        touch-action: manipulation;
+    }
+    .floating-lang-toggle {
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+        left: calc(18px + env(safe-area-inset-left, 0px)) !important;
+        height: 42px !important;
+        padding: 0 14px !important;
+        font-size: 0.84rem !important;
+        z-index: 998 !important;
+        display: flex !important;
+        pointer-events: auto !important;
+        touch-action: manipulation;
+    }
+
+    /* Prevent iOS auto-zoom on form inputs */
+    .form-control,
+    .form-select,
+    .form-control-ayur,
+    .form-select-ayur {
+        font-size: 16px !important;
+    }
+}
+
+/* Small Smartphone Viewports (320px - 576px) */
+@media (max-width: 576px) {
+    .floating-whatsapp {
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(14px + env(safe-area-inset-right, 0px)) !important;
+        width: 52px !important;
+        height: 52px !important;
+        font-size: 1.85rem !important;
+    }
+    .floating-theme-toggle {
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+        left: calc(14px + env(safe-area-inset-left, 0px)) !important;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.15rem !important;
+    }
+    .floating-lang-toggle {
+        bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+        left: calc(14px + env(safe-area-inset-left, 0px)) !important;
+        height: 38px !important;
+        padding: 0 10px !important;
+        font-size: 0.78rem !important;
+    }
+
+    /* Extra bottom clearance for footer on mobile so floating buttons don't block content */
+    footer.ayurveda-footer {
+        padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    /* Hero refinements for narrow screens */
+    .hero-title {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+        word-break: break-word !important;
+    }
+    .hero-badge {
+        font-size: 0.78rem !important;
+        padding: 5px 12px !important;
+        max-width: 100% !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Facility gallery card heights on small screens */
+    .gallery-card {
+        height: 230px !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    /* OPD slip mobile compact typography */
+    .opd-slip {
+        padding: 0.85rem !important;
+    }
+    .opd-clinic-name {
+        font-size: 1.05rem !important;
+    }
+    .opd-title {
+        font-size: 0.8rem !important;
+    }
+    .opd-ref-pill {
+        font-size: 0.88rem !important;
+    }
+    .opd-table th.table-label,
+    .opd-table td.table-val {
+        padding: 6px 8px !important;
+        font-size: 0.78rem !important;
+    }
+}
+
+/* Touchscreens: Hide hover tooltips so they do not stay stuck on mobile screens */
+@media (hover: none) and (pointer: coarse) {
+    .wa-tooltip,
+    .theme-tooltip,
+    .lang-tooltip {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
 }
 
@@ -2046,25 +2196,27 @@ header.sticky-top .navbar {
     border-radius: 6px;
 }
 
-.navbar-action-buttons {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem !important;
-}
+@media (min-width: 992px) {
+    .navbar-action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem !important;
+    }
 
-.navbar-action-buttons .btn {
-    font-size: 0.82rem !important;
-    padding: 0.32rem 0.75rem !important;
-    white-space: nowrap !important;
-}
+    .navbar-action-buttons .btn {
+        font-size: 0.82rem !important;
+        padding: 0.32rem 0.75rem !important;
+        white-space: nowrap !important;
+    }
 
-.navbar-action-buttons .lang-btn-group {
-    padding: 2px 4px !important;
-}
+    .navbar-action-buttons .lang-btn-group {
+        padding: 2px 4px !important;
+    }
 
-.navbar-action-buttons .lang-pill-btn {
-    font-size: 0.78rem !important;
-    padding: 3px 8px !important;
+    .navbar-action-buttons .lang-pill-btn {
+        font-size: 0.78rem !important;
+        padding: 3px 8px !important;
+    }
 }
 
 /* Treatment Card Layout & Spacing */

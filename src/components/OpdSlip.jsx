@@ -218,16 +218,16 @@ export const OpdSlip = ({ appointment }) => {
       </div>
 
       {/* Action Buttons (Hidden when printing) */}
-      <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center pt-3 border-top d-print-none">
-        <Link to="/status" className="btn btn-outline-secondary btn-sm rounded-pill px-3">
+      <div className="d-flex flex-column flex-sm-row flex-wrap gap-2 justify-content-between align-items-stretch align-items-sm-center pt-3 border-top d-print-none">
+        <Link to="/status" className="btn btn-outline-secondary btn-sm rounded-pill px-3 text-center">
           <i className="fa-solid fa-arrow-left me-1"></i> Track Another Booking
         </Link>
 
-        <div className="d-flex gap-2">
+        <div className="d-flex flex-column flex-sm-row gap-2">
           <button
             type="button"
             onClick={handlePrint}
-            className="btn btn-ayur-primary btn-sm rounded-pill px-4"
+            className="btn btn-ayur-primary btn-sm rounded-pill px-3.5 text-center"
           >
             <i className="fa-solid fa-print me-1"></i> Print / Save Slip (PDF)
           </button>
@@ -235,7 +235,7 @@ export const OpdSlip = ({ appointment }) => {
             href={`https://wa.me/919795578700?text=${waMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-success btn-sm rounded-pill px-3"
+            className="btn btn-success btn-sm rounded-pill px-3 text-center"
           >
             <i className="fa-brands fa-whatsapp me-1"></i> Confirm on WhatsApp
           </a>

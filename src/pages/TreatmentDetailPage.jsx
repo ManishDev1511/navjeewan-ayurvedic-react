@@ -80,7 +80,7 @@ export const TreatmentDetailPage = () => {
                   <p className="small text-muted mb-0">{treatment.idealFor}</p>
                 </div>
 
-                <div className="d-flex flex-wrap justify-content-between align-items-center pt-3 border-top">
+                <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center pt-3 border-top">
                   <Link to="/treatments" className="btn btn-outline-secondary rounded-pill btn-sm px-3">
                     <i className="fa-solid fa-arrow-left me-1"></i> Back to Treatments
                   </Link>
@@ -96,7 +96,7 @@ export const TreatmentDetailPage = () => {
 
             {/* Sidebar Booking Card */}
             <div className="col-lg-4">
-              <div className="bg-white rounded-4 border shadow-sm p-4 sticky-top" style={{ top: '100px' }}>
+              <div className="bg-white rounded-4 border shadow-sm p-4 sticky-lg-top" style={{ top: '100px' }}>
                 <div className="text-center pb-3 border-bottom mb-3">
                   <span className="badge bg-success-subtle text-success px-3 py-1 rounded-pill mb-2">
                     OPD Consultation: ₹100 Only

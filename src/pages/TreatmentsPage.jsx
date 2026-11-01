@@ -44,17 +44,18 @@ export const TreatmentsPage = () => {
           <div className="bg-white p-3 p-md-4 rounded-4 border shadow-sm mb-5">
             <div className="row g-3 align-items-center">
               <div className="col-lg-8">
-                <div className="d-flex flex-wrap gap-2">
+                <div className="d-flex flex-wrap gap-1.5 gap-sm-2">
                   {categories.map((cat) => (
                     <button
                       key={cat}
                       type="button"
-                      className={`btn btn-sm rounded-pill px-3 ${
+                      className={`btn btn-sm rounded-pill px-2.5 px-sm-3 ${
                         selectedCategory === cat
                           ? 'btn-ayur-primary'
                           : 'btn-outline-secondary'
                       }`}
                       onClick={() => setSelectedCategory(cat)}
+                      style={{ fontSize: '0.82rem' }}
                     >
                       {cat === 'All' ? t('filterAll') : cat}
                     </button>

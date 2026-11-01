@@ -22,13 +22,14 @@ export const AboutPage = () => {
         <div className="container">
           <div className="row align-items-center g-5">
             <div className="col-lg-5">
-              <div className="doctor-badge-card p-4 shadow-lg border bg-white rounded-4">
+              <div className="doctor-badge-card p-3.5 p-sm-4 shadow-lg border bg-white rounded-4">
                 <div className="doctor-profile-preview position-relative rounded-4 overflow-hidden mb-3 shadow-sm bg-light text-center p-3">
                   <div
                     className="mx-auto rounded-circle overflow-hidden shadow-sm mb-2"
                     style={{
-                      width: '200px',
-                      height: '200px',
+                      width: '180px',
+                      height: '180px',
+                      maxWidth: '100%',
                       border: '3px solid var(--ayur-gold)',
                       background: '#ffffff'
                     }}

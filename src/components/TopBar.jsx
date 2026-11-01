@@ -6,10 +6,10 @@ export const TopBar = () => {
   const { lang, changeLanguage, t } = useLanguage();
 
   return (
-    <div className="top-bar py-2 d-print-none">
-      <div className="container-fluid px-3 px-lg-4 px-xxl-5 d-flex flex-wrap justify-content-between align-items-center text-sm">
-        <div className="d-flex align-items-center gap-3 top-bar-info">
-          <span>
+    <div className="top-bar py-1.5 py-sm-2 d-print-none">
+      <div className="container-fluid px-2.5 px-sm-3 px-lg-4 px-xxl-5 d-flex flex-wrap justify-content-between align-items-center text-sm">
+        <div className="d-flex align-items-center gap-2 gap-sm-3 top-bar-info">
+          <span className="text-truncate">
             <i className="fa-solid fa-location-dot text-gold me-1"></i>
             {t('addressShort')}
           </span>
@@ -19,7 +19,7 @@ export const TopBar = () => {
           </span>
         </div>
 
-        <div className="d-flex align-items-center gap-3 top-bar-actions">
+        <div className="d-flex align-items-center gap-2 gap-sm-3 top-bar-actions">
           {/* Top Announcement Language Switcher */}
           <div className="lang-switch-top notranslate" translate="no" title="भाषा चुनें / Select Language">
             <i className="fa-solid fa-language text-gold"></i>
@@ -41,13 +41,15 @@ export const TopBar = () => {
           </div>
 
           <a href="tel:+919795578700" className="top-link notranslate">
-            <i className="fa-solid fa-phone me-1"></i> 097955 78700
+            <i className="fa-solid fa-phone me-1"></i>
+            <span className="d-none d-sm-inline">097955 78700</span>
+            <span className="d-inline d-sm-none">Call</span>
           </a>
           <a
             href="https://wa.me/919795578700?text=Namaste%20Dr.%20Sharvan%20Kumar,%20I%20want%20to%20consult%20at%20Nav%20Jeevan%20Ayurvedic"
             target="_blank"
             rel="noopener noreferrer"
-            className="top-link text-whatsapp notranslate"
+            className="top-link text-whatsapp notranslate d-none d-md-inline"
           >
             <i className="fa-brands fa-whatsapp me-1"></i> WhatsApp
           </a>
@@ -55,13 +57,13 @@ export const TopBar = () => {
             href="https://www.facebook.com/p/Nav-Jeevan-Ayurvedic-Upchar-Kendra-100093061388826/"
             target="_blank"
             rel="noopener noreferrer"
-            className="top-link text-info d-none d-sm-inline"
+            className="top-link text-info d-none d-lg-inline"
           >
             <i className="fa-brands fa-facebook me-1"></i> Facebook Page
           </a>
           <Link
             to="/admin"
-            className="doctor-portal-pill ms-1"
+            className="doctor-portal-pill ms-1 d-none d-sm-inline-flex"
             title="Doctor & Staff Portal"
           >
             <span className="portal-icon-circle">

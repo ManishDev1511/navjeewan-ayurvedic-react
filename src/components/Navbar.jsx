@@ -130,14 +130,15 @@ export const Navbar = () => {
 
             <div className="navbar-action-buttons d-flex flex-wrap align-items-center gap-1.5 mt-2 mt-lg-0 ms-lg-3">
               {/* Language Switcher Pill */}
-              <div className="lang-btn-group notranslate shadow-sm py-0.5 px-1" role="group" aria-label="Language Selector">
+              <div className="lang-btn-group notranslate shadow-sm py-0.5 px-1 d-inline-flex align-items-center" role="group" aria-label="Language Selector">
+                <i className="fa-solid fa-globe text-gold ms-1 me-1" style={{ fontSize: '0.82rem' }}></i>
                 <button
                   type="button"
                   className={`lang-pill-btn ${lang === 'en' ? 'active' : ''} py-1 px-2`}
                   onClick={() => changeLanguage('en')}
                   style={{ fontSize: '0.78rem' }}
                 >
-                  <span className="lang-flag">🇬🇧</span> <span className="lang-text">EN</span>
+                  <span className="lang-text fw-semibold">EN</span>
                 </button>
                 <button
                   type="button"
@@ -145,7 +146,7 @@ export const Navbar = () => {
                   onClick={() => changeLanguage('hi')}
                   style={{ fontSize: '0.78rem' }}
                 >
-                  <span className="lang-flag">🇮🇳</span> <span className="lang-text">हिन्दी</span>
+                  <span className="lang-text fw-semibold">हिन्दी</span>
                 </button>
               </div>
 
@@ -153,7 +154,10 @@ export const Navbar = () => {
               <button
                 type="button"
                 className="btn btn-outline-ayur-theme px-2.5 py-1.5 rounded-pill shadow-sm d-flex align-items-center gap-1"
-                onClick={openThemeDrawer}
+                onClick={() => {
+                  closeNav();
+                  openThemeDrawer();
+                }}
                 title="Customize Theme & Color"
                 style={{ fontSize: '0.8rem' }}
               >

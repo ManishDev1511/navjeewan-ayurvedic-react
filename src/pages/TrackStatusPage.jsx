@@ -46,7 +46,7 @@ export const TrackStatusPage = () => {
 
       <section className="py-5 bg-ayur-cream">
         <div className="container" style={{ maxWidth: '700px' }}>
-          <div className="bg-white p-4 p-md-5 rounded-4 border shadow-sm mb-4">
+          <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm mb-4">
             <form onSubmit={handleSearch} className="mb-4">
               <label htmlFor="refNoInput" className="form-label fw-bold small text-muted text-uppercase tracking-wider">
                 Enter Appointment Reference Number:
@@ -61,7 +61,7 @@ export const TrackStatusPage = () => {
                   onChange={(e) => setInputRef(e.target.value)}
                   required
                 />
-                <button type="submit" className="btn btn-ayur-primary px-4 fw-bold">
+                <button type="submit" className="btn btn-ayur-primary px-3 px-sm-4 fw-bold">
                   <i className="fa-solid fa-magnifying-glass me-1"></i> Track
                 </button>
               </div>
@@ -94,7 +94,7 @@ export const TrackStatusPage = () => {
             {/* Search Results Display */}
             {hasSearched && (
               appointment ? (
-                <div className="border rounded-4 p-4 bg-light shadow-sm">
+                <div className="border rounded-4 p-3 p-sm-4 bg-light shadow-sm">
                   <div className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
                     <div>
                       <h5 className="fw-bold mb-0 text-ayur-primary">{appointment.fullName}</h5>

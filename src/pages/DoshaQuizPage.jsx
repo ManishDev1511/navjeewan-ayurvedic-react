@@ -75,7 +75,7 @@ export const DoshaQuizPage = () => {
       <section className="py-5 bg-ayur-cream">
         <div className="container" style={{ maxWidth: '850px' }}>
           {!result ? (
-            <div className="bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+            <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm">
               <div className="d-flex justify-content-between align-items-center mb-2 small text-muted">
                 <span>Progress: {answeredCount} of {totalQuestions} Answered</span>
                 <span className="fw-bold text-ayur-primary">{progressPercent}%</span>
@@ -124,15 +124,15 @@ export const DoshaQuizPage = () => {
                   </div>
                 ))}
 
-                <div className="d-flex justify-content-between align-items-center pt-3">
-                  <span className="text-muted small">
+                <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 pt-3">
+                  <span className="text-muted small text-center text-sm-start">
                     {answeredCount < totalQuestions
                       ? `Please answer all questions (${totalQuestions - answeredCount} remaining)`
                       : 'All questions completed! Ready to analyze.'}
                   </span>
                   <button
                     type="submit"
-                    className="btn btn-ayur-primary btn-lg rounded-pill px-5 shadow-sm"
+                    className="btn btn-ayur-primary btn-lg rounded-pill px-4 px-sm-5 py-2.5 py-sm-3 shadow-sm w-100 w-sm-auto text-center"
                     disabled={answeredCount < totalQuestions}
                   >
                     <i className="fa-solid fa-wand-magic-sparkles me-2"></i> Reveal My Dosha
@@ -142,7 +142,7 @@ export const DoshaQuizPage = () => {
             </div>
           ) : (
             /* Result Card */
-            <div className="bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+            <div className="bg-white p-3.5 p-sm-4 p-md-5 rounded-4 border shadow-sm">
               <div className="text-center pb-4 border-bottom mb-4">
                 <span className="badge bg-gold text-dark px-3 py-1 rounded-pill fw-bold mb-2">
                   Prakriti Assessment Result

@@ -65,15 +65,15 @@ export const DoctorDashboardPage = () => {
   return (
     <>
       {/* Top Admin Header */}
-      <div className="py-4 bg-white border-bottom">
-        <div className="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div className="py-3 py-md-4 bg-white border-bottom">
+        <div className="container d-flex flex-wrap justify-content-between align-items-center gap-2 gap-md-3">
           <div>
-            <span className="badge bg-gold text-dark fw-bold px-2.5 py-1 rounded small">
+            <span className="badge bg-gold text-dark fw-bold px-2 py-0.5 rounded small" style={{ fontSize: '0.72rem' }}>
               Dr. Sharvan Kumar (BAMS, NET, JRF, SRF, Ph.D.)
             </span>
-            <h2 className="font-cinzel fw-bold mb-0">Clinic Appointments &amp; Patients</h2>
+            <h2 className="font-cinzel fw-bold mb-0 fs-4 fs-md-2">Clinic Appointments &amp; Patients</h2>
           </div>
-          <div className="d-flex align-items-center gap-2">
+          <div className="d-flex align-items-center gap-2 flex-wrap">
             <button
               type="button"
               className={`btn btn-sm rounded-pill px-3 ${
@@ -82,7 +82,7 @@ export const DoctorDashboardPage = () => {
               onClick={() => setActiveTab(activeTab === 'messages' ? 'appointments' : 'messages')}
             >
               <i className="fa-solid fa-envelope me-1"></i>
-              Inquiries &amp; Messages ({messages.length})
+              Inquiries ({messages.length})
             </button>
             <button
               type="button"
@@ -98,66 +98,66 @@ export const DoctorDashboardPage = () => {
         </div>
       </div>
 
-      <section className="py-4 bg-ayur-cream min-vh-75">
+      <section className="py-3 py-md-4 bg-ayur-cream min-vh-75">
         <div className="container">
-          {/* Metrics Row */}
-          <div className="row g-3 mb-4">
-            <div className="col-md-3 col-sm-6">
-              <div className="bg-white p-3 rounded-4 border shadow-sm d-flex align-items-center gap-3">
+          {/* Metrics Row: 2x2 on mobile, 4 columns on large screens */}
+          <div className="row g-2 g-md-3 mb-3 mb-md-4">
+            <div className="col-6 col-md-3">
+              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-primary flex-shrink-0"
-                  style={{ width: '48px', height: '48px' }}
+                  style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
                 >
                   <i className="fa-solid fa-users"></i>
                 </div>
                 <div>
-                  <h4 className="fw-bold mb-0">{totalCount}</h4>
-                  <small className="text-muted">Total Appointments</small>
+                  <h4 className="fw-bold mb-0 fs-5 fs-md-4">{totalCount}</h4>
+                  <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>Total Consults</small>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-3 col-sm-6">
-              <div className="bg-white p-3 rounded-4 border shadow-sm d-flex align-items-center gap-3">
+            <div className="col-6 col-md-3">
+              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-warning flex-shrink-0"
-                  style={{ width: '48px', height: '48px' }}
+                  style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
                 >
                   <i className="fa-solid fa-hourglass-half"></i>
                 </div>
                 <div>
-                  <h4 className="fw-bold mb-0">{pendingCount}</h4>
-                  <small className="text-muted">Pending Confirmation</small>
+                  <h4 className="fw-bold mb-0 fs-5 fs-md-4">{pendingCount}</h4>
+                  <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>Pending</small>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-3 col-sm-6">
-              <div className="bg-white p-3 rounded-4 border shadow-sm d-flex align-items-center gap-3">
+            <div className="col-6 col-md-3">
+              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-success flex-shrink-0"
-                  style={{ width: '48px', height: '48px' }}
+                  style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
                 >
                   <i className="fa-solid fa-calendar-check"></i>
                 </div>
                 <div>
-                  <h4 className="fw-bold mb-0">{todayCount}</h4>
-                  <small className="text-muted">Today's Schedule</small>
+                  <h4 className="fw-bold mb-0 fs-5 fs-md-4">{todayCount}</h4>
+                  <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>Today's Appts</small>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-3 col-sm-6">
-              <div className="bg-white p-3 rounded-4 border shadow-sm d-flex align-items-center gap-3">
+            <div className="col-6 col-md-3">
+              <div className="bg-white p-2.5 p-md-3 rounded-4 border shadow-sm d-flex align-items-center gap-2 gap-md-3">
                 <div
                   className="treatment-icon-wrapper bg-light text-info flex-shrink-0"
-                  style={{ width: '48px', height: '48px' }}
+                  style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}
                 >
                   <i className="fa-solid fa-circle-check"></i>
                 </div>
                 <div>
-                  <h4 className="fw-bold mb-0">{completedCount}</h4>
-                  <small className="text-muted">Completed Consults</small>
+                  <h4 className="fw-bold mb-0 fs-5 fs-md-4">{completedCount}</h4>
+                  <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>Completed</small>
                 </div>
               </div>
             </div>
@@ -223,8 +223,12 @@ export const DoctorDashboardPage = () => {
 
               {/* Appointments List */}
               <div className="bg-white rounded-4 border shadow-sm overflow-hidden">
+                <div className="small text-muted d-block d-md-none px-3 py-2 bg-light border-bottom">
+                  <i className="fa-solid fa-arrows-left-right me-1 text-gold"></i>
+                  Scroll horizontally to view all columns
+                </div>
                 <div className="table-responsive">
-                  <table className="table table-hover align-middle mb-0">
+                  <table className="table table-hover align-middle mb-0" style={{ minWidth: '680px' }}>
                     <thead className="table-light small text-uppercase text-muted">
                       <tr>
                         <th>Ref / Date</th>
@@ -360,7 +364,7 @@ export const DoctorDashboardPage = () => {
 
                     return (
                       <div key={msg.id} className="border rounded-3 p-3 bg-light">
-                        <div className="d-flex justify-content-between align-items-start mb-2">
+                        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2 mb-2">
                           <div>
                             <h5 className="fw-bold mb-0">{msg.name}</h5>
                             <div className="small text-muted">
@@ -372,8 +376,8 @@ export const DoctorDashboardPage = () => {
                               )}
                             </div>
                           </div>
-                          <div className="text-end">
-                            <small className="text-muted d-block mb-1">
+                          <div className="d-flex align-items-center gap-2 align-self-stretch align-self-sm-auto justify-content-between justify-content-sm-end">
+                            <small className="text-muted">
                               {new Date(msg.submittedAt).toLocaleDateString('en-IN', {
                                 day: 'numeric',
                                 month: 'short',
