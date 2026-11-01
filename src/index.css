@@ -1,0 +1,2207 @@
+:root {
+    --ayur-green-dark: #051c12;
+    --ayur-green-primary: #0b492c;
+    --ayur-green-medium: #157347;
+    --ayur-green-light: #24a165;
+    --ayur-green-mint: #d1fae5;
+    --ayur-gold: #c68a18;
+    --ayur-gold-light: #f5b938;
+    --ayur-gold-bg: #fff8e6;
+    --ayur-cream: #faf7f0;
+    --ayur-card-bg: #ffffff;
+    --ayur-text-dark: #0f1d16;
+    --ayur-text-muted: #536b5e;
+    --ayur-border: #d3e5da;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --shadow-soft: 0 10px 25px rgba(5, 28, 18, 0.06);
+    --shadow-hover: 0 20px 40px rgba(5, 28, 18, 0.14), 0 0 15px rgba(198, 138, 24, 0.16);
+    --shadow-gold: 0 0 20px rgba(198, 138, 24, 0.35);
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--ayur-text-dark);
+    background-color: var(--ayur-cream);
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6, .font-cinzel {
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+/* Colors */
+.text-gold { color: var(--ayur-gold) !important; }
+.text-gold-light { color: var(--ayur-gold-light) !important; }
+.text-ayur-primary { color: var(--ayur-green-primary) !important; }
+.text-ayur-text-muted { color: var(--ayur-text-muted) !important; }
+.text-light-muted { color: #d1ebd9 !important; }
+.bg-ayur-cream { background-color: var(--ayur-cream) !important; }
+.bg-gold { background-color: var(--ayur-gold) !important; }
+.bg-gold-subtle { background-color: var(--ayur-gold-bg) !important; }
+.bg-dark-green-glass { 
+    background: linear-gradient(135deg, rgba(5, 28, 18, 0.95), rgba(11, 73, 44, 0.92)); 
+    border: 1.5px solid rgba(198, 138, 24, 0.35); 
+    box-shadow: 0 12px 30px rgba(5, 28, 18, 0.25);
+}
+
+/* Top Bar */
+.top-bar {
+    background: linear-gradient(90deg, #03140c 0%, #082a1b 50%, #03140c 100%);
+    color: #d1ebd9;
+    font-size: 0.86rem;
+    border-bottom: 2px solid rgba(198, 138, 24, 0.35);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+.top-link {
+    color: #d1ebd9 !important;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+.top-link:hover {
+    color: var(--ayur-gold-light) !important;
+    transform: translateY(-1px);
+}
+.text-whatsapp {
+    color: #25d366 !important;
+    font-weight: 600;
+}
+
+/* Brand */
+.brand-logo-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.brand-logo-container:hover .brand-logo-img {
+    transform: scale(1.06);
+    box-shadow: 0 6px 16px rgba(198, 146, 52, 0.35) !important;
+}
+.brand-logo-img {
+    transition: all 0.3s ease;
+}
+.brand-logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--ayur-green-primary), var(--ayur-green-dark));
+    color: var(--ayur-gold-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(25, 77, 51, 0.2);
+}
+.brand-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    color: var(--ayur-green-dark);
+}
+.brand-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 1.8px;
+    color: var(--ayur-gold);
+    font-weight: 700;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--ayur-text-dark);
+    padding: 0.5rem 0.65rem;
+    font-size: 0.93rem;
+    white-space: nowrap;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--ayur-green-primary) !important;
+    background-color: rgba(45, 106, 79, 0.05);
+}
+.navbar-nav .nav-link.active {
+    color: var(--ayur-green-primary) !important;
+    font-weight: 600;
+    background-color: rgba(45, 106, 79, 0.08);
+}
+
+.navbar-toggler {
+    border: 1px solid var(--ayur-border);
+    border-radius: 10px;
+    padding: 6px 10px;
+    background-color: #fafcfb;
+    transition: all 0.2s ease;
+}
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(25, 77, 51, 0.15);
+    outline: none;
+}
+.navbar-toggler:hover {
+    background-color: var(--ayur-green-mint);
+    border-color: var(--ayur-green-light);
+}
+
+/* Action Buttons in Navbar */
+.navbar-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.75rem;
+}
+.navbar-action-buttons .btn {
+    white-space: nowrap;
+    font-size: 0.88rem;
+    padding: 0.45rem 1rem;
+}
+
+@media (min-width: 1400px) {
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.96rem;
+    }
+    .navbar-action-buttons .btn {
+        font-size: 0.92rem;
+        padding: 0.5rem 1.15rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.25rem;
+        margin-top: 0.75rem;
+        border: 1px solid var(--ayur-border);
+        box-shadow: 0 12px 30px rgba(10, 33, 24, 0.08);
+    }
+    .navbar-nav .nav-link {
+        padding: 0.65rem 1rem !important;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.95rem;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background-color: var(--ayur-green-mint);
+        color: var(--ayur-green-primary) !important;
+    }
+    .navbar-action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-left: 0;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--ayur-border);
+    }
+    .navbar-action-buttons .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 0.6rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .brand-title {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    .brand-subtitle {
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+    }
+    .brand-logo-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+    .top-bar-info {
+        font-size: 0.78rem;
+    }
+}
+
+/* Buttons with Sheen & Glow */
+.btn-ayur-primary {
+    background: linear-gradient(135deg, #0b492c 0%, #051c12 100%);
+    color: #ffffff;
+    font-weight: 700;
+    border: 1px solid rgba(198, 138, 24, 0.4);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(11, 73, 44, 0.28);
+    transition: all 0.35s ease;
+    letter-spacing: 0.3px;
+}
+.btn-ayur-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+.btn-ayur-primary:hover::before {
+    left: 140%;
+}
+.btn-ayur-primary:hover {
+    background: linear-gradient(135deg, #157347 0%, #0b492c 100%);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(11, 73, 44, 0.4), 0 0 18px rgba(198, 138, 24, 0.3);
+}
+
+.btn-ayur-gold {
+    background: linear-gradient(135deg, #f5be38 0%, #c68a18 50%, #9e6f0b 100%);
+    color: #051c12;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(198, 138, 24, 0.35);
+    transition: all 0.35s ease;
+    letter-spacing: 0.3px;
+}
+.btn-ayur-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+.btn-ayur-gold:hover::before {
+    left: 140%;
+}
+.btn-ayur-gold:hover {
+    background: linear-gradient(135deg, #fce59f 0%, #e6a827 50%, #b87b0f 100%);
+    color: #051c12;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(198, 138, 24, 0.5), 0 0 20px rgba(245, 190, 56, 0.45);
+}
+
+.btn-ayur-outline {
+    border: 2px solid var(--ayur-green-primary);
+    color: var(--ayur-green-primary);
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+.btn-ayur-outline:hover {
+    background: linear-gradient(135deg, var(--ayur-green-primary), var(--ayur-green-dark));
+    color: #ffffff;
+    border-color: var(--ayur-green-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11, 73, 44, 0.25);
+}
+
+/* Hero Section with Radiant Aura */
+.hero-section {
+    background: 
+        radial-gradient(circle at 85% 15%, rgba(198, 138, 24, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 10% 45%, rgba(11, 73, 44, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(209, 250, 229, 0.5) 0%, transparent 70%),
+        #faf7f0;
+    padding: 85px 0 65px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(198, 138, 24, 0.5), transparent);
+}
+.hero-badge {
+    background: linear-gradient(135deg, #fff9e8, #fef0ca);
+    border: 1.5px solid rgba(198, 138, 24, 0.55);
+    color: #7d5208;
+    padding: 7px 18px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(198, 138, 24, 0.18);
+    animation: goldPulse 3.5s infinite ease-in-out;
+}
+@keyframes goldPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(198, 138, 24, 0.18);
+        border-color: rgba(198, 138, 24, 0.55);
+    }
+    50% {
+        box-shadow: 0 6px 24px rgba(198, 138, 24, 0.38);
+        border-color: rgba(198, 138, 24, 0.95);
+    }
+}
+.hero-title {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--ayur-green-dark);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(5, 28, 18, 0.08);
+}
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.3rem;
+    }
+}
+.hero-card {
+    background: #ffffff;
+    border: 1.5px solid var(--ayur-border);
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(5, 28, 18, 0.08);
+}
+
+/* Doctor Highlight Card (Glassmorphic Luxury) */
+.doctor-badge-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 248, 0.95));
+    border: 2px solid rgba(198, 138, 24, 0.4) !important;
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: 0 20px 48px rgba(5, 28, 18, 0.12), 0 0 25px rgba(198, 138, 24, 0.12) !important;
+    position: relative;
+    backdrop-filter: blur(14px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.doctor-badge-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--ayur-gold) !important;
+    box-shadow: 0 26px 58px rgba(5, 28, 18, 0.16), 0 0 35px rgba(198, 138, 24, 0.22) !important;
+}
+.doctor-avatar-circle {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ayur-green-mint), #a7f3d0);
+    border: 4px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--ayur-green-primary);
+    box-shadow: 0 8px 20px rgba(5, 28, 18, 0.12);
+}
+.doctor-profile-preview {
+    background: linear-gradient(135deg, #fdfbf7, #f2eadc);
+}
+
+/* Feature & Treatment Cards with 3D Elevation & Golden Glow */
+.treatment-card {
+    background: #ffffff;
+    border: 1.5px solid var(--ayur-border);
+    border-radius: 20px;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 6px 20px rgba(5, 28, 18, 0.04);
+}
+.treatment-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--ayur-gold) !important;
+    box-shadow: 0 22px 45px rgba(5, 28, 18, 0.14), 0 0 22px rgba(198, 138, 24, 0.18);
+}
+.treatment-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #d1fae5, #bbf7d0);
+    color: var(--ayur-green-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 14px rgba(11, 73, 44, 0.12);
+}
+.treatment-card:hover .treatment-icon-wrapper {
+    background: linear-gradient(135deg, var(--ayur-green-primary), #051c12);
+    color: #f5be38;
+    transform: scale(1.12) rotate(6deg);
+    box-shadow: 0 8px 22px rgba(11, 73, 44, 0.32);
+}
+
+/* Ayurveda Pillar Cards */
+.pillar-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1.5px solid var(--ayur-border);
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 20px rgba(5, 28, 18, 0.04);
+}
+.pillar-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--ayur-gold) !important;
+    box-shadow: 0 20px 40px rgba(5, 28, 18, 0.12), 0 0 22px rgba(198, 138, 24, 0.16);
+}
+/* Treatment Image Wrap */
+.treatment-img-wrap {
+    height: 195px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 18px 18px 0 0;
+}
+.treatment-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.treatment-card:hover .treatment-img {
+    transform: scale(1.1);
+}
+.treatment-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5, 28, 18, 0.8) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 12px 16px;
+}
+
+/* Upchar Kendra Facility Gallery */
+.gallery-card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(5, 28, 18, 0.08);
+    border: 1.5px solid var(--ayur-border);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 250px;
+    background: #051c12;
+}
+.gallery-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 42px rgba(5, 28, 18, 0.18), 0 0 20px rgba(198, 138, 24, 0.2);
+    border-color: var(--ayur-gold) !important;
+}
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.gallery-card:hover .gallery-img {
+    transform: scale(1.08);
+}
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 18px;
+    background: linear-gradient(to top, rgba(5, 28, 18, 0.98) 0%, rgba(5, 28, 18, 0.65) 70%, transparent 100%);
+    color: #ffffff;
+}
+
+/* Floating WhatsApp with Pulsing Radar Effect */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 62px;
+    height: 62px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: waRadar 2.4s infinite;
+}
+@keyframes waRadar {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.65), 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 18px rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+}
+.floating-whatsapp:hover {
+    color: #ffffff;
+    transform: scale(1.12);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+}
+.wa-tooltip {
+    position: absolute;
+    right: 75px;
+    background: #051c12;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(198, 138, 24, 0.4);
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.floating-whatsapp:hover .wa-tooltip {
+    opacity: 1;
+}
+
+/* Footer */
+.ayurveda-footer {
+    background: linear-gradient(180deg, var(--ayur-green-dark) 0%, #06140f 100%);
+    border-top: 3px solid var(--ayur-gold);
+}
+.footer-heading {
+    color: var(--ayur-gold-light);
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 8px;
+}
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background: var(--ayur-gold);
+}
+.footer-nav li {
+    margin-bottom: 8px;
+}
+.footer-nav a {
+    color: #b2c9be;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+.footer-nav a:hover {
+    color: var(--ayur-gold-light);
+    padding-left: 4px;
+}
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.social-icon:hover {
+    background: var(--ayur-gold);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Form Controls */
+.form-control-ayur, .form-select-ayur {
+    border: 1px solid #cedcd2;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    background-color: #fafcfb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control-ayur:focus, .form-select-ayur:focus {
+    border-color: var(--ayur-green-medium);
+    box-shadow: 0 0 0 0.25rem rgba(45, 106, 79, 0.15);
+    background-color: #ffffff;
+}
+
+/* Status Badges */
+.badge-status-pending { background-color: #fef3c7; color: #b45309; font-weight: 600; padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(180, 83, 9, 0.2); }
+.badge-status-confirmed { background-color: #dcfce7; color: #15803d; font-weight: 600; padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(21, 128, 61, 0.2); }
+.badge-status-completed { background-color: #e0f2fe; color: #0369a1; font-weight: 600; padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(3, 105, 161, 0.2); }
+.badge-status-cancelled { background-color: #fee2e2; color: #b91c1c; font-weight: 600; padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(185, 28, 28, 0.2); }
+
+/* Consultation Mode Badges */
+.badge-mode-inclinic {
+    background-color: #ecfdf5 !important;
+    color: #065f46 !important;
+    border: 1px solid #a7f3d0 !important;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.badge-mode-online {
+    background-color: #f0f9ff !important;
+    color: #0369a1 !important;
+    border: 1px solid #bae6fd !important;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ==========================================================================
+   THEME & COLOR SYSTEM (Light/Dark Mode & Ayurvedic Color Presets)
+   ========================================================================== */
+
+/* Smooth Transition on Mode / Color Switch */
+html, body, .navbar, .top-bar, .treatment-card, .pillar-card, .doctor-badge-card,
+.hero-section, footer, .offcanvas, .btn, .card, .bg-white, .bg-ayur-cream {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 1. Royal Emerald Forest (Prakriti - Default Strong Theme) */
+[data-color="forest"] {
+    --ayur-green-dark: #051c12;
+    --ayur-green-primary: #0b492c;
+    --ayur-green-medium: #157347;
+    --ayur-green-light: #24a165;
+    --ayur-green-mint: #d1fae5;
+    --ayur-gold: #c68a18;
+    --ayur-gold-light: #f5b938;
+    --ayur-gold-bg: #fff8e6;
+    --ayur-border: #d3e5da;
+}
+
+/* 2. Royal Chandan (Sandalwood Gold & Amber) */
+[data-color="chandan"] {
+    --ayur-green-dark: #241805;
+    --ayur-green-primary: #8a580c;
+    --ayur-green-medium: #b07518;
+    --ayur-green-light: #d1932e;
+    --ayur-green-mint: #fef3c7;
+    --ayur-gold: #b45309;
+    --ayur-gold-light: #f59e0b;
+    --ayur-gold-bg: #fffbeb;
+    --ayur-border: #f0e1c7;
+}
+
+/* 3. Ayurvedic Terracotta (Tamra / Sacred Earth & Copper) */
+[data-color="terracotta"] {
+    --ayur-green-dark: #260f0a;
+    --ayur-green-primary: #9b371b;
+    --ayur-green-medium: #bf4d2c;
+    --ayur-green-light: #dd6e4c;
+    --ayur-green-mint: #ffedd5;
+    --ayur-gold: #c2410c;
+    --ayur-gold-light: #ea580c;
+    --ayur-gold-bg: #fff7ed;
+    --ayur-border: #f6ded5;
+}
+
+/* 4. Healing Ocean Teal (Jala & Aquatic Neem) */
+[data-color="teal"] {
+    --ayur-green-dark: #071f1d;
+    --ayur-green-primary: #0f6259;
+    --ayur-green-medium: #158376;
+    --ayur-green-light: #28a596;
+    --ayur-green-mint: #ccfbf1;
+    --ayur-gold: #0d9488;
+    --ayur-gold-light: #2dd4bf;
+    --ayur-gold-bg: #f0fdfa;
+    --ayur-border: #cbeae5;
+}
+
+/* 5. Sacred Lotus (Kesar & Ruby Maroon) */
+[data-color="kesar"] {
+    --ayur-green-dark: #210711;
+    --ayur-green-primary: #831843;
+    --ayur-green-medium: #9d174d;
+    --ayur-green-light: #be185d;
+    --ayur-green-mint: #fce7f3;
+    --ayur-gold: #d97706;
+    --ayur-gold-light: #fbbf24;
+    --ayur-gold-bg: #fff1f2;
+    --ayur-border: #fad1e0;
+}
+
+/* ==========================================================================
+   DARK THEME STYLES (Emerald Night & Nocturnal Ayurveda)
+   ========================================================================== */
+[data-theme="dark"] {
+    --ayur-cream: #05160e;
+    --ayur-card-bg: #092417;
+    --ayur-text-dark: #f0f7f3;
+    --ayur-text-muted: #a3c2b2;
+    --ayur-border: #18422e;
+    --ayur-gold-bg: #291d06;
+}
+
+[data-theme="dark"][data-color="chandan"] {
+    --ayur-cream: #141009;
+    --ayur-card-bg: #21190d;
+    --ayur-border: #382c16;
+    --ayur-green-mint: #33250b;
+}
+
+[data-theme="dark"][data-color="terracotta"] {
+    --ayur-cream: #140d0a;
+    --ayur-card-bg: #221510;
+    --ayur-border: #3b2219;
+    --ayur-green-mint: #381b12;
+}
+
+[data-theme="dark"][data-color="teal"] {
+    --ayur-cream: #081413;
+    --ayur-card-bg: #0f2220;
+    --ayur-border: #193834;
+    --ayur-green-mint: #113632;
+}
+
+[data-theme="dark"][data-color="kesar"] {
+    --ayur-cream: #14080e;
+    --ayur-card-bg: #220e18;
+    --ayur-border: #3b1627;
+    --ayur-green-mint: #361122;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--ayur-cream);
+    color: var(--ayur-text-dark);
+}
+
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] header.bg-white {
+    background-color: var(--ayur-card-bg) !important;
+}
+
+[data-theme="dark"] .bg-ayur-cream {
+    background-color: var(--ayur-cream) !important;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-bottom,
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-end,
+[data-theme="dark"] .border-start {
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] :not(.badge):not(.btn).text-dark {
+    color: var(--ayur-text-dark) !important;
+}
+
+/* Headings in Dark Mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .font-cinzel {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .text-ayur-primary {
+    color: #6ee7b7 !important;
+}
+
+[data-theme="dark"][data-color="chandan"] .text-ayur-primary {
+    color: #fcd34d !important;
+}
+[data-theme="dark"][data-color="terracotta"] .text-ayur-primary {
+    color: #fb923c !important;
+}
+[data-theme="dark"][data-color="teal"] .text-ayur-primary {
+    color: #5eead4 !important;
+}
+[data-theme="dark"][data-color="kesar"] .text-ayur-primary {
+    color: #f472b6 !important;
+}
+
+[data-theme="dark"] .text-ayur-text-muted,
+[data-theme="dark"] .lead,
+[data-theme="dark"] .text-muted {
+    color: #b7cfc3 !important;
+}
+
+[data-theme="dark"] small.text-muted,
+[data-theme="dark"] .text-muted small {
+    color: #9cb5a9 !important;
+}
+
+[data-theme="dark"] .treatment-card,
+[data-theme="dark"] .pillar-card,
+[data-theme="dark"] .hero-card {
+    background: var(--ayur-card-bg) !important;
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] .doctor-badge-card {
+    background: var(--ayur-card-bg) !important;
+    border-color: rgba(198, 138, 24, 0.45) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(198, 138, 24, 0.2) !important;
+}
+
+[data-theme="dark"] .doctor-badge-card .bg-light {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme="dark"] .doctor-badge-card .text-dark,
+[data-theme="dark"] .doctor-badge-card a.text-dark {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .doctor-profile-preview {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .treatment-icon-wrapper {
+    background: rgba(36, 161, 101, 0.18) !important;
+    color: #6ee7b7 !important;
+}
+
+[data-theme="dark"] .btn-ayur-outline {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #6ee7b7 !important;
+    border-color: #6ee7b7 !important;
+}
+[data-theme="dark"] .btn-ayur-outline:hover {
+    background: linear-gradient(135deg, #157347, #0b492c) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-outline-ayur-theme {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #e2ede6 !important;
+    border-color: var(--ayur-border) !important;
+}
+[data-theme="dark"] .btn-outline-ayur-theme:hover {
+    background: rgba(245, 190, 56, 0.15) !important;
+    border-color: var(--ayur-gold) !important;
+    color: var(--ayur-gold-light) !important;
+}
+
+[data-theme="dark"] .brand-title {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-control-ayur,
+[data-theme="dark"] .form-select-ayur {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--ayur-border) !important;
+    color: var(--ayur-text-dark) !important;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: #6d8478;
+}
+
+[data-theme="dark"] .input-group-text {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-color: var(--ayur-border) !important;
+    color: var(--ayur-text-dark);
+}
+
+/* Table Dark Mode */
+[data-theme="dark"] .table {
+    --bs-table-bg: var(--ayur-card-bg) !important;
+    --bs-table-color: var(--ayur-text-dark) !important;
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.05) !important;
+    --bs-table-hover-color: var(--ayur-text-dark) !important;
+    --bs-table-border-color: var(--ayur-border) !important;
+    background-color: var(--ayur-card-bg) !important;
+    color: var(--ayur-text-dark) !important;
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] .table > :not(caption) > * > * {
+    background-color: var(--ayur-card-bg) !important;
+    color: var(--ayur-text-dark) !important;
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] .table thead,
+[data-theme="dark"] .table thead.table-light,
+[data-theme="dark"] .table thead.table-light th,
+[data-theme="dark"] .table-light {
+    --bs-table-bg: rgba(255, 255, 255, 0.06) !important;
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    color: var(--ayur-gold-light) !important;
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover > * {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Badges & Buttons Dark Mode Contrast */
+[data-theme="dark"] .badge-mode-inclinic {
+    background-color: rgba(16, 185, 129, 0.22) !important;
+    color: #6ee7b7 !important;
+    border: 1px solid rgba(16, 185, 129, 0.45) !important;
+}
+
+[data-theme="dark"] .badge-mode-online {
+    background-color: rgba(14, 165, 233, 0.22) !important;
+    color: #7dd3fc !important;
+    border: 1px solid rgba(14, 165, 233, 0.45) !important;
+}
+
+[data-theme="dark"] .badge-status-pending {
+    background-color: rgba(234, 179, 8, 0.22) !important;
+    color: #facc15 !important;
+    border: 1px solid rgba(234, 179, 8, 0.45) !important;
+}
+
+[data-theme="dark"] .badge-status-confirmed {
+    background-color: rgba(34, 197, 94, 0.22) !important;
+    color: #4ade80 !important;
+    border: 1px solid rgba(34, 197, 94, 0.45) !important;
+}
+
+[data-theme="dark"] .badge-status-completed {
+    background-color: rgba(59, 130, 246, 0.22) !important;
+    color: #60a5fa !important;
+    border: 1px solid rgba(59, 130, 246, 0.45) !important;
+}
+
+[data-theme="dark"] .badge-status-cancelled {
+    background-color: rgba(239, 68, 68, 0.22) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.45) !important;
+}
+
+[data-theme="dark"] .btn-light {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: var(--ayur-text-dark) !important;
+    border-color: var(--ayur-border) !important;
+}
+[data-theme="dark"] .btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.16) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary {
+    color: #cbd5e1 !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+[data-theme="dark"] .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .badge.bg-light {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #ecf3ee !important;
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] .hero-section {
+    background: radial-gradient(circle at 85% 15%, rgba(198, 138, 24, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 10% 30%, rgba(25, 77, 51, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 50% 100%, rgba(9, 36, 23, 0.9) 0%, transparent 70%),
+                #05160e;
+}
+
+[data-theme="dark"] .hero-title {
+    color: #ffffff !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] .hero-title .text-gold {
+    background: linear-gradient(135deg, #fde047 0%, #f59e0b 50%, #d97706 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+[data-theme="dark"] .hero-badge {
+    background: rgba(198, 138, 24, 0.16) !important;
+    border-color: rgba(245, 190, 56, 0.5) !important;
+    color: #fde047 !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .navbar-collapse {
+    background: var(--ayur-card-bg) !important;
+    border-color: var(--ayur-border) !important;
+}
+
+[data-theme="dark"] .navbar-nav .nav-link {
+    color: #d1ebd9 !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .navbar-nav .nav-link:hover {
+    color: #f5be38 !important;
+    background-color: rgba(245, 190, 56, 0.12) !important;
+}
+
+[data-theme="dark"] .navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(36, 161, 101, 0.4), rgba(11, 73, 44, 0.7)) !important;
+    border: 1px solid rgba(110, 231, 183, 0.3) !important;
+}
+
+[data-theme="dark"] .offcanvas {
+    background-color: var(--ayur-card-bg);
+    color: var(--ayur-text-dark);
+    border-color: var(--ayur-border);
+}
+
+[data-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--ayur-card-bg);
+    border-color: var(--ayur-border);
+}
+
+.card {
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(5, 28, 18, 0.12), 0 0 18px rgba(198, 138, 24, 0.12) !important;
+}
+
+/* ==========================================================================
+   THEME CUSTOMIZER UI COMPONENTS
+   ========================================================================== */
+
+/* Navbar Theme Button */
+.btn-outline-ayur-theme {
+    border: 1px solid var(--ayur-border);
+    background: rgba(25, 77, 51, 0.04);
+    color: var(--ayur-text-dark);
+    transition: all 0.2s ease;
+}
+.btn-outline-ayur-theme:hover {
+    background: var(--ayur-green-mint);
+    border-color: var(--ayur-green-light);
+    color: var(--ayur-green-primary);
+}
+
+/* Floating Theme Switcher Button */
+.floating-theme-toggle {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--ayur-green-primary), var(--ayur-green-dark));
+    color: var(--ayur-gold-light);
+    border: 2px solid var(--ayur-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    z-index: 998;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.floating-theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 8px 25px rgba(198, 146, 52, 0.45);
+    color: #ffffff;
+}
+.theme-tooltip {
+    position: absolute;
+    left: 64px;
+    background: #111;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.floating-theme-toggle:hover .theme-tooltip {
+    opacity: 1;
+}
+
+/* Offcanvas Drawer */
+.theme-offcanvas {
+    max-width: 360px;
+}
+.theme-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--ayur-green-mint);
+    color: var(--ayur-green-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+.theme-mode-card {
+    border: 2px solid var(--ayur-border);
+    border-radius: 14px;
+    padding: 12px 10px;
+    background: var(--ayur-card-bg);
+    color: var(--ayur-text-dark);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+.theme-mode-card:hover {
+    border-color: var(--ayur-green-light);
+}
+.theme-mode-card.active {
+    border-color: var(--ayur-gold);
+    background: var(--ayur-gold-bg);
+    box-shadow: 0 4px 12px rgba(198, 146, 52, 0.18);
+}
+.color-preset-card {
+    border: 2px solid var(--ayur-border);
+    border-radius: 12px;
+    background: var(--ayur-card-bg);
+    color: var(--ayur-text-dark);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.color-preset-card:hover {
+    border-color: var(--ayur-green-light);
+    transform: translateX(3px);
+}
+.color-preset-card.active {
+    border-color: var(--ayur-gold);
+    background: var(--ayur-gold-bg);
+}
+.color-preset-card .check-indicator {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.color-preset-card.active .check-indicator {
+    opacity: 1;
+}
+.color-preview-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   OPD APPOINTMENT SLIP / CONSULTATION PASS STYLES (SCREEN & PRINT)
+   ========================================================================== */
+.opd-slip {
+    padding: 1.85rem 2.25rem;
+    background: #ffffff;
+    border: 1px solid var(--ayur-border);
+    transition: all 0.3s ease;
+}
+
+.opd-brand-logo {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--ayur-green-primary), var(--ayur-green-dark));
+    color: var(--ayur-gold-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    border: 1.5px solid var(--ayur-gold);
+    box-shadow: 0 4px 10px rgba(25, 77, 51, 0.2);
+}
+
+.opd-clinic-name {
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+}
+
+.opd-clinic-tagline {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ayur-gold);
+}
+
+.opd-reg-info {
+    font-size: 0.74rem;
+}
+
+.opd-doctor-info {
+    font-size: 0.82rem;
+}
+
+.opd-dr-name {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.opd-dr-sub,
+.opd-dr-reg {
+    font-size: 0.74rem;
+}
+
+.opd-contact-bar {
+    font-size: 0.78rem;
+    border-color: rgba(198, 146, 52, 0.2) !important;
+}
+
+.opd-divider-double {
+    border-top: 2px solid var(--ayur-green-primary);
+    border-bottom: 1px solid var(--ayur-gold);
+    height: 4px;
+}
+
+.opd-ribbon {
+    background: linear-gradient(90deg, rgba(25, 77, 51, 0.07), rgba(198, 146, 52, 0.08));
+    border: 1px solid rgba(25, 77, 51, 0.25);
+}
+
+.opd-title {
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+}
+
+.opd-ref-pill {
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+}
+
+.opd-table {
+    border-color: #cbd5e1;
+}
+
+.opd-table th.table-label {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.opd-table td.table-val {
+    font-size: 0.85rem;
+    color: #1e293b;
+}
+
+.opd-vitals-box {
+    background-color: #fafcfb;
+    border-color: #d1e7dd !important;
+}
+
+.ruled-line {
+    border-bottom: 1px dashed #cbd5e1;
+    height: 16px;
+    margin-top: 4px;
+}
+
+.opd-instructions {
+    background-color: #fffef9;
+    border: 1px solid #fce8c3 !important;
+}
+
+.opd-barcode {
+    font-size: 0.85rem;
+    letter-spacing: 2.5px;
+}
+
+.opd-token-hash {
+    font-size: 0.74rem;
+}
+
+.opd-stamp-box {
+    min-width: 170px;
+}
+
+.opd-seal-circle {
+    border: 1.5px dashed var(--ayur-gold);
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.opd-sign-line {
+    border-bottom: 1.5px solid #334155;
+    width: 170px;
+    margin-left: auto;
+}
+
+/* Dark Mode Screen Support for OPD Slip */
+[data-theme="dark"] .opd-slip {
+    background-color: var(--ayur-card-bg);
+    border-color: var(--ayur-border);
+}
+[data-theme="dark"] .opd-clinic-name,
+[data-theme="dark"] .opd-dr-name,
+[data-theme="dark"] .opd-title,
+[data-theme="dark"] .opd-ref-pill {
+    color: var(--ayur-gold-light) !important;
+}
+[data-theme="dark"] .opd-table th.table-label {
+    background-color: rgba(25, 77, 51, 0.25);
+    color: #e2ede5;
+    border-color: var(--ayur-border);
+}
+[data-theme="dark"] .opd-table td.table-val {
+    background-color: var(--ayur-card-bg);
+    color: #f1f8f4 !important;
+    border-color: var(--ayur-border);
+}
+[data-theme="dark"] .opd-vitals-box {
+    background-color: rgba(25, 77, 51, 0.15);
+    border-color: var(--ayur-border) !important;
+}
+[data-theme="dark"] .opd-instructions {
+    background-color: rgba(198, 146, 52, 0.08);
+    border-color: rgba(198, 146, 52, 0.2) !important;
+}
+[data-theme="dark"] .opd-sign-line {
+    border-color: var(--ayur-gold);
+}
+[data-theme="dark"] .opd-barcode {
+    color: #e2ede5 !important;
+}
+
+/* ==========================================================================
+   PRINT MEDIA RULES: GUARANTEED SINGLE-PAGE (A4 1/1) CLINIC RECEIPT
+   ========================================================================== */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 6mm 10mm 6mm 10mm;
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Completely hide entire website frame, headers, navbars, footers, buttons */
+    html, body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        font-size: 10pt !important;
+        line-height: 1.25 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .top-bar,
+    header,
+    footer,
+    nav,
+    .navbar,
+    .navbar-collapse,
+    .navbar-toggler,
+    .floating-theme-toggle,
+    .floating-whatsapp,
+    .theme-offcanvas,
+    .offcanvas,
+    .no-print,
+    .d-print-none,
+    .btn,
+    .alert,
+    .modal,
+    .theme-tooltip,
+    .wa-tooltip,
+    .social-links {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+
+    main {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .appointment-success-section {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .appointment-success-section .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Target Slip Container - strict single page fit */
+    #printableSlip.opd-slip {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 16px !important;
+        border: 2px solid #194d33 !important;
+        border-radius: 6px !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        break-before: avoid !important;
+        break-after: avoid !important;
+    }
+
+    .opd-letterhead {
+        margin-bottom: 4px !important;
+        padding-bottom: 4px !important;
+    }
+
+    .opd-brand-logo {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 1.1rem !important;
+        background: #194d33 !important;
+        color: #ffffff !important;
+        border: 1px solid #c69234 !important;
+        border-radius: 8px !important;
+    }
+
+    .opd-clinic-name {
+        font-size: 14pt !important;
+        color: #194d33 !important;
+        font-family: 'Cinzel', serif !important;
+        line-height: 1.1 !important;
+    }
+
+    .opd-clinic-tagline {
+        font-size: 7pt !important;
+        letter-spacing: 1px !important;
+        color: #855d14 !important;
+    }
+
+    .opd-reg-info {
+        font-size: 7.2pt !important;
+        color: #475569 !important;
+    }
+
+    .opd-dr-name {
+        font-size: 12pt !important;
+        color: #194d33 !important;
+        font-family: 'Cinzel', serif !important;
+        line-height: 1.1 !important;
+    }
+
+    .opd-dr-sub,
+    .opd-dr-reg {
+        font-size: 7.2pt !important;
+        color: #475569 !important;
+    }
+
+    .opd-contact-bar {
+        font-size: 7.5pt !important;
+        margin-top: 4px !important;
+        padding-top: 3px !important;
+        color: #334155 !important;
+        border-top: 1px solid #cbd5e1 !important;
+    }
+
+    .opd-divider-double {
+        border-top: 2px solid #194d33 !important;
+        border-bottom: 1px solid #c69234 !important;
+        height: 3px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .opd-ribbon {
+        background: #f1f8f4 !important;
+        border: 1px solid #194d33 !important;
+        padding: 4px 8px !important;
+        margin-bottom: 6px !important;
+        border-radius: 4px !important;
+    }
+
+    .opd-title {
+        font-size: 9pt !important;
+        color: #194d33 !important;
+    }
+
+    .opd-ref-pill {
+        font-size: 10.5pt !important;
+        color: #194d33 !important;
+    }
+
+    .opd-details-table-wrap {
+        margin-bottom: 6px !important;
+    }
+
+    .opd-table {
+        border: 1px solid #cbd5e1 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .opd-table th,
+    .opd-table td {
+        padding: 3px 6px !important;
+        font-size: 8.5pt !important;
+        border: 1px solid #cbd5e1 !important;
+        line-height: 1.2 !important;
+    }
+
+    .table-label {
+        background-color: #f8fafc !important;
+        color: #334155 !important;
+        font-weight: 600 !important;
+    }
+
+    .table-val {
+        color: #0f172a !important;
+    }
+
+    .badge-mode-inclinic {
+        background-color: #d1fae5 !important;
+        color: #065f46 !important;
+        border: 1px solid #059669 !important;
+        font-size: 7.5pt !important;
+        padding: 1px 5px !important;
+    }
+
+    .badge-mode-online {
+        background-color: #e0f2fe !important;
+        color: #0369a1 !important;
+        border: 1px solid #0284c7 !important;
+        font-size: 7.5pt !important;
+        padding: 1px 5px !important;
+    }
+
+    .opd-vitals-box {
+        border: 1px solid #cbd5e1 !important;
+        background: #fbfdfb !important;
+        padding: 5px 8px !important;
+        margin-bottom: 6px !important;
+        border-radius: 4px !important;
+    }
+
+    .opd-vitals-box .row > div {
+        font-size: 8pt !important;
+    }
+
+    .ruled-line {
+        border-bottom: 1px dashed #94a3b8 !important;
+        height: 12px !important;
+        margin-top: 2px !important;
+    }
+
+    .opd-instructions {
+        border: 1px solid #e2e8f0 !important;
+        background: #fffefb !important;
+        padding: 5px 8px !important;
+        margin-bottom: 6px !important;
+        border-radius: 4px !important;
+    }
+
+    .opd-instructions .row > div {
+        font-size: 7.2pt !important;
+        line-height: 1.2 !important;
+    }
+
+    .opd-slip-footer {
+        padding-top: 5px !important;
+        border-top: 1px solid #cbd5e1 !important;
+    }
+
+    .opd-barcode {
+        font-size: 8pt !important;
+        letter-spacing: 2px !important;
+        color: #000000 !important;
+    }
+
+    .opd-token-hash {
+        font-size: 6.8pt !important;
+    }
+
+    .opd-shloka {
+        display: block !important;
+    }
+
+    .opd-shloka .text-ayur-primary {
+        font-size: 8pt !important;
+        color: #194d33 !important;
+    }
+
+    .opd-stamp-box {
+        font-size: 7pt !important;
+    }
+
+    .opd-seal-circle {
+        border: 1px dashed #c69234 !important;
+        color: #855d14 !important;
+        padding: 2px 6px !important;
+        font-size: 6.5pt !important;
+    }
+
+    .opd-sign-line {
+        width: 130px !important;
+        border-bottom: 1px solid #0f172a !important;
+        margin-left: auto !important;
+    }
+}
+
+
+
+/* ========================================================
+   Header & Sticky Sidebar Overlap Fix
+   ======================================================== */
+header.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1030 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Ensure navbar items fit cleanly without squeezing */
+.navbar-nav .nav-link {
+    font-size: 0.92rem;
+    padding: 0.45rem 0.65rem !important;
+    white-space: nowrap;
+}
+
+.navbar .btn {
+    white-space: nowrap;
+    font-size: 0.88rem;
+    padding: 0.45rem 0.85rem !important;
+}
+
+/* Fix sidebar card from overlapping header when scrolling */
+main .sticky-top,
+.treatment-sidebar-sticky {
+    position: sticky !important;
+    top: 115px !important; /* Leaves a generous 35-40px gap below the sticky navbar */
+    z-index: 1010 !important; /* Stays below the 1030 header */
+}
+
+/* On mobile/tablets, disable sticky so it flows naturally */
+@media (max-width: 991.98px) {
+    main .sticky-top,
+    .treatment-sidebar-sticky {
+        position: static !important;
+        top: auto !important;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+.navbar-action-buttons {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Language Switcher & Translation Styles (Hindi / English)
+   ========================================================================== */
+
+/* Navbar Segmented Language Pill */
+.lang-btn-group {
+    background: #f1f5f3;
+    border: 1.5px solid rgba(198, 138, 24, 0.4);
+    border-radius: 50px;
+    padding: 2.5px 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+.lang-pill-btn {
+    border: none;
+    background: transparent;
+    border-radius: 50px;
+    padding: 4px 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ayur-text-dark);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.25;
+}
+.lang-pill-btn:hover {
+    color: var(--ayur-green-primary);
+    background: rgba(255, 255, 255, 0.8);
+}
+.lang-pill-btn.active {
+    background: linear-gradient(135deg, var(--ayur-green-primary) 0%, var(--ayur-green-dark) 100%);
+    color: #ffffff !important;
+    border: 1px solid var(--ayur-gold);
+    box-shadow: 0 2px 8px rgba(11, 73, 44, 0.35);
+}
+.lang-pill-btn.active .lang-flag {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+/* Top Announcement Bar Language Switcher */
+.lang-switch-top {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(198, 138, 24, 0.45);
+    border-radius: 50px;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.lang-top-btn {
+    color: #d1ebd9;
+    font-weight: 600;
+    font-size: 0.78rem;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.lang-top-btn:hover {
+    color: var(--ayur-gold-light);
+}
+.lang-top-btn.active {
+    color: var(--ayur-gold-light);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Floating Language Toggle */
+.floating-lang-toggle {
+    position: fixed;
+    bottom: 90px;
+    left: 28px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #0b492c 0%, #051c12 100%);
+    color: #f5b938;
+    border: 2px solid var(--ayur-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+    z-index: 998;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.floating-lang-toggle:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 10px 25px rgba(198, 146, 52, 0.45);
+    color: #ffffff;
+    border-color: #f5b938;
+}
+.floating-lang-toggle .floating-lang-text {
+    letter-spacing: 0.5px;
+}
+.floating-lang-toggle .lang-tooltip {
+    position: absolute;
+    left: calc(100% + 12px);
+    background: var(--ayur-green-dark);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid var(--ayur-gold);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.floating-lang-toggle:hover .lang-tooltip {
+    opacity: 1;
+}
+
+/* Offcanvas Language Cards */
+.lang-card-btn {
+    background: #ffffff;
+    border-color: var(--ayur-border);
+    transition: all 0.2s ease;
+    text-align: left;
+}
+.lang-card-btn:hover {
+    border-color: var(--ayur-green-light);
+    background: var(--ayur-green-mint);
+}
+.lang-card-btn.active {
+    border-color: var(--ayur-gold) !important;
+    background: var(--ayur-gold-bg) !important;
+    box-shadow: 0 4px 12px rgba(198, 138, 24, 0.18);
+}
+
+/* Language Change Floating Notification Toast */
+.lang-notification-toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #051c12, #0b492c);
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 50px;
+    border: 1.5px solid var(--ayur-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 999999;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.lang-notification-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark Mode Overrides for Language Switcher */
+[data-bs-theme="dark"] .lang-btn-group,
+[data-theme="dark"] .lang-btn-group {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(245, 185, 56, 0.35);
+}
+[data-bs-theme="dark"] .lang-pill-btn,
+[data-theme="dark"] .lang-pill-btn {
+    color: #d1d5db;
+}
+[data-bs-theme="dark"] .lang-pill-btn:hover,
+[data-theme="dark"] .lang-pill-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--ayur-gold-light);
+}
+[data-bs-theme="dark"] .lang-pill-btn.active,
+[data-theme="dark"] .lang-pill-btn.active {
+    background: linear-gradient(135deg, #157347 0%, #0b492c 100%);
+    color: #ffffff !important;
+    border-color: var(--ayur-gold-light);
+    box-shadow: 0 2px 10px rgba(245, 185, 56, 0.3);
+}
+[data-bs-theme="dark"] .lang-card-btn,
+[data-theme="dark"] .lang-card-btn {
+    background: #12281d;
+    border-color: #244b37;
+    color: #e5e7eb;
+}
+[data-bs-theme="dark"] .lang-card-btn.active,
+[data-theme="dark"] .lang-card-btn.active {
+    background: #1c3d2c !important;
+    border-color: var(--ayur-gold-light) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-action-buttons .lang-btn-group {
+        width: 100%;
+        justify-content: center;
+        padding: 5px;
+    }
+    .navbar-action-buttons .lang-pill-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 6px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .floating-lang-toggle {
+        bottom: 82px;
+        left: 16px;
+        height: 42px;
+        padding: 0 12px;
+        font-size: 0.82rem;
+    }
+    .floating-theme-toggle {
+        bottom: 24px;
+        left: 16px;
+    }
+}
+
+/* ==========================================================================
+   Google Translate Widget Hidden & Clean Aesthetics
+   ========================================================================== */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate:not(.goog-te-menu-frame) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    border: none !important;
+}
+body {
+    top: 0px !important;
+    position: static !important;
+}
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-te-balloon-frame {
+    display: none !important;
+    visibility: hidden !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+#google_translate_element {
+    display: none !important;
+}
+.goog-te-gadget {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Refined Sleek Navbar & Button Polish
+   ========================================================================== */
+header.sticky-top {
+    box-shadow: 0 2px 10px rgba(5, 28, 18, 0.05) !important;
+}
+
+header.sticky-top .navbar {
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
+    min-height: 54px;
+}
+
+.brand-logo-img {
+    width: 38px !important;
+    height: 38px !important;
+}
+
+.brand-title {
+    font-size: 1.08rem !important;
+    letter-spacing: 1.2px !important;
+    line-height: 1.1 !important;
+}
+
+.brand-subtitle {
+    font-size: 0.58rem !important;
+    letter-spacing: 1.4px !important;
+    margin-top: 1px;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.35rem 0.55rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    border-radius: 6px;
+}
+
+.navbar-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem !important;
+}
+
+.navbar-action-buttons .btn {
+    font-size: 0.82rem !important;
+    padding: 0.32rem 0.75rem !important;
+    white-space: nowrap !important;
+}
+
+.navbar-action-buttons .lang-btn-group {
+    padding: 2px 4px !important;
+}
+
+.navbar-action-buttons .lang-pill-btn {
+    font-size: 0.78rem !important;
+    padding: 3px 8px !important;
+}
+
+/* Treatment Card Layout & Spacing */
+.treatment-card {
+    border: 1.5px solid var(--ayur-border);
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 1rem;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(5, 28, 18, 0.04);
+}
+
+.treatment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 42px rgba(5, 28, 18, 0.15), 0 0 20px rgba(198, 138, 24, 0.18);
+    border-color: var(--ayur-gold) !important;
+}
+
+.treatment-card .treatment-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1rem;
+    margin-top: auto;
+}
+
+/* Treatment Card Buttons refinement */
+.treatment-card .btn {
+    font-size: 0.84rem !important;
+    padding: 0.45rem 0.8rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+}
+
+.treatment-card .btn-outline-secondary {
+    border-color: #cbd5e1 !important;
+    color: #475569 !important;
+}
+
+.treatment-card .btn-outline-secondary:hover {
+    background-color: #f1f5f9 !important;
+    border-color: #94a3b8 !important;
+    color: #0f172a !important;
+}
+
+/* Facility Gallery Card Row Spacing & Height */
+.gallery-card {
+    height: 260px !important;
+    border-radius: 18px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin-bottom: 1.75rem !important;
+    box-shadow: 0 8px 24px rgba(5, 28, 18, 0.08) !important;
+    border: 1.5px solid var(--ayur-border) !important;
+    transition: all 0.35s ease !important;
+    background: #051c12 !important;
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 40px rgba(5, 28, 18, 0.18), 0 0 22px rgba(198, 138, 24, 0.25) !important;
+    border-color: var(--ayur-gold) !important;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px !important;
+    background: linear-gradient(to top, rgba(5, 28, 18, 0.98) 0%, rgba(5, 28, 18, 0.72) 65%, transparent 100%) !important;
+    color: #ffffff !important;
+    z-index: 2;
+}
+
+/* Ensure no button awkwardly wraps across lines */
+.btn-ayur-primary,
+.btn-ayur-gold,
+.btn-ayur-outline,
+.btn-outline-secondary,
+.btn-outline-primary {
+    white-space: nowrap !important;
+}
+
+/* Doctor Portal Pill in Top Bar */
+.doctor-portal-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 4px 14px !important;
+    border-radius: 50px !important;
+    background: rgba(198, 138, 24, 0.16) !important;
+    border: 1px solid rgba(198, 138, 24, 0.5) !important;
+    color: #f5b938 !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.doctor-portal-pill:hover {
+    background: rgba(198, 138, 24, 0.28) !important;
+    border-color: var(--ayur-gold) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(198, 138, 24, 0.3) !important;
+}
+
+.doctor-portal-pill .portal-icon-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(198, 138, 24, 0.3);
+    border: 1px solid rgba(198, 138, 24, 0.65);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.74rem;
+    color: #f5b938;
+    flex-shrink: 0;
+}
+
+/* Fractional Spacing Utilities Support */
+.px-1\.5 { padding-left: 0.375rem !important; padding-right: 0.375rem !important; }
+.py-1\.5 { padding-top: 0.375rem !important; padding-bottom: 0.375rem !important; }
+.p-1\.5  { padding: 0.375rem !important; }
+.px-2\.5 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+.py-2\.5 { padding-top: 0.625rem !important; padding-bottom: 0.625rem !important; }
+.p-2\.5  { padding: 0.625rem !important; }
+.px-3\.5 { padding-left: 1.125rem !important; padding-right: 1.125rem !important; }
+.py-3\.5 { padding-top: 1.125rem !important; padding-bottom: 1.125rem !important; }
+.p-3\.5  { padding: 1.125rem !important; }
+.gap-1\.5 { gap: 0.375rem !important; }
+.gap-2\.5 { gap: 0.75rem !important; }
+
+
